@@ -4,6 +4,7 @@ import "./globals.css";
 import NewsBanner from "@/components/layout/NewsBanner";
 import Navbar from "@/components/layout/Navbar";
 import { cn } from "@/lib/utils";
+import MobileNavbar from "@/components/layout/MobileNavbar";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -28,6 +29,7 @@ export default function RootLayout({
           newsText="MaryJane VIP Coming Soon"
         />
         <Navbar />
+        <MobileNavbar />
         {children}
       </body>
     </html>

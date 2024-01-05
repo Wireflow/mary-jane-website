@@ -35,6 +35,7 @@ const Section = ({
   return (
     <div
       className={twMerge(
+        "bg-no-repeat bg-cover",
         bg_variants[background],
         size_variants[size],
         className

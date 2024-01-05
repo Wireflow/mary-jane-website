@@ -8,7 +8,7 @@ const Directions = (props: Props) => {
   return (
     <Section className="bg-black" size="sm">
       <div className="flex flex-col items-center gap-6">
-        <h1 className="sm:text-5xl text-3xl text-white font-bold">
+        <h1 className="lg:text-6xl md:text-5xl sm:text-4xl text-2xl text-white font-semibold">
           Where you can <span className="text-theme-yellow">find</span> us
         </h1>
         <Button className="sm:px-[50px] px-[30px] py-5 text-[12px] bg-theme-yellow text-black font-bold">

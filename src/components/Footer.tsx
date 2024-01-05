@@ -14,14 +14,14 @@ const Footer = (props: Props) => {
         <div className="border-b pb-5 border-gray-200 flex flex-col gap-8">
           <div className="flex flex-col gap-1">
             <Image
-              className="-ml-2 mb-2  w-[300px]"
+              className="-ml-2 mb-2  md:w-[300px] w-[150px]"
               alt="Logo"
               src={"/icon-logo-white.svg"}
               width={300}
               height={40}
             />
-            <h2 className="md:text-2xl text-xl font-semibold">NYC LOCATION</h2>
-            <p className="font-medium md:text-lg text-md">
+            <h2 className="md:text-2xl text-lg font-semibold">NYC LOCATION</h2>
+            <p className="font-medium md:text-lg text-sm">
               657 Meeker Avenue Brooklyn, NY 11222
             </p>
           </div>

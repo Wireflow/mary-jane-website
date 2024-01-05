@@ -4,6 +4,7 @@ import React from "react";
 import Image from "next/image";
 import Section from "./ui/section";
 import { Button } from "./ui/button";
+import NewsletterForm from "./forms/NewsletterForm";
 
 type Props = {};
 
@@ -37,13 +38,7 @@ const Footer = (props: Props) => {
                 Location
               </Link>
             </div>
-            <div className="flex gap-3 md:items-center sm:flex-nowrap md:flex-row flex-col ">
-              <input
-                className="border p-2 rounded-lg"
-                placeholder="Enter your email"
-              />
-              <Button className="bg-theme-purple p-5 ">Subscribe</Button>
-            </div>
+            <NewsletterForm />
           </div>
         </div>
         <div className="flex justify-between flex-wrap gap-2">

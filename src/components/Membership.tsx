@@ -70,7 +70,7 @@ const Membership = (props: Props) => {
                 </p>
               </div>
             </div>
-            <Button className="bg-theme-yellow text-black font-bold">
+            <Button className="bg-theme-yellow text-black font-bold" disabled>
               Coming Soon
             </Button>
           </div>
@@ -125,7 +125,7 @@ const Membership = (props: Props) => {
                 </p>
               </div>
             </div>
-            <Button className="bg-theme-yellow text-black font-bold">
+            <Button className="bg-theme-yellow text-black font-bold" disabled>
               Coming Soon
             </Button>
           </div>
@@ -135,7 +135,13 @@ const Membership = (props: Props) => {
         <Image src={"/WeedLeaf.svg"} alt="leaf" width={400} height={400} />
       </div>
       <div className="absolute right-0 top-0 xl:hidden block">
-        <Image className="lg:w-[450px] md:w-[400px] sm:w-[300px] w-[220px]" src={"/TopWeedLeaf.svg"} alt="leaf" width={450} height={400} />
+        <Image
+          className="lg:w-[450px] md:w-[400px] sm:w-[300px] w-[220px]"
+          src={"/TopWeedLeaf.svg"}
+          alt="leaf"
+          width={450}
+          height={400}
+        />
       </div>
     </Section>
   );

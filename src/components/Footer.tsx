@@ -10,31 +10,31 @@ type Props = {};
 
 const Footer = (props: Props) => {
   return (
-    <Section className="bg-black text-white" size="sm">
+    <Section className="bg-black text-white" >
       <div className="flex flex-col gap-5">
         <div className="border-b pb-5 border-gray-200 flex flex-col gap-8">
           <div className="flex flex-col gap-1">
             <Image
-              className="-ml-2 mb-2  w-[300px]"
+              className="-ml-[1px] mb-2  md:w-[300px] w-[200px]"
               alt="Logo"
               src={"/icon-logo-white.svg"}
               width={300}
               height={40}
             />
-            <h2 className="md:text-2xl text-xl font-semibold">NYC LOCATION</h2>
-            <p className="font-medium md:text-lg text-md">
+            <h2 className="md:text-2xl text-lg font-semibold">NYC LOCATION</h2>
+            <p className="font-medium md:text-lg text-sm">
               657 Meeker Avenue Brooklyn, NY 11222
             </p>
           </div>
           <div className="flex justify-between  md:flex-row flex-col gap-5">
             <div className="flex gap-5">
-              <Link className="text-md font-semibold" href={"/"}>
+              <Link className="sm:text-md text-sm font-semibold" href={"/"}>
                 Home
               </Link>
-              <Link className="text-md font-semibold" href={"/"}>
+              <Link className="sm:text-md text-sm font-semibold" href={"/"}>
                 Memberships
               </Link>
-              <Link className="text-md font-semibold" href={"/"}>
+              <Link className="sm:text-md text-sm font-semibold" href={"/"}>
                 Location
               </Link>
             </div>

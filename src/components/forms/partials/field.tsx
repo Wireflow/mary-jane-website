@@ -53,7 +53,7 @@ const Field = ({
               {...field}
               {...props}
               className={twMerge(
-                "pb-4 px-0 outline-none shadow-none border-x-0 border-t-0 rounded-none border-b-1 focus-visible:ring-0",
+                "px-0 outline-none shadow-none border-x-0 border-t-0 rounded-none border-b-1 focus-visible:ring-0",
                 className
               )}
             />

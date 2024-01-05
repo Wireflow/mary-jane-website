@@ -40,7 +40,7 @@ const RegisterHeroForm = (props: Props) => {
           <p>
             Already have an account?{" "}
             <Link
-              href={"/signin"}
+              href={"/auth"}
               className="underline text-theme-purple font-semibold"
             >
               Sign In

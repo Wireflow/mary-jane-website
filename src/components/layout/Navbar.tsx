@@ -44,12 +44,12 @@ const Navbar = (props: Props) => {
           })}
         </div>
       </div>
-      <div>
+      <Link href="/auth">
         <div className="bg-white p-1 rounded-xl flex items-center justify-center">
           <User2 size={40} />
         </div>
         <p className="text-white text-center mt-2 font-semibold">Sign in</p>
-      </div>
+      </Link>
     </div>
   );
 };

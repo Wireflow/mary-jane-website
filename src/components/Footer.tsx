@@ -9,19 +9,19 @@ type Props = {};
 
 const Footer = (props: Props) => {
   return (
-    <Section size="sm">
+    <Section className="bg-black text-white" size="sm">
       <div className="flex flex-col gap-5">
-        <div className="border-b pb-5 border-black flex flex-col gap-8">
+        <div className="border-b pb-5 border-gray-200 flex flex-col gap-8">
           <div className="flex flex-col gap-1">
             <Image
               className="-ml-2 mb-2  w-[300px]"
               alt="Logo"
-              src={"/FooterLogo.svg"}
+              src={"/icon-logo-white.svg"}
               width={300}
               height={40}
             />
-            <h2 className="md:text-3xl text-2xl font-semibold">NYC LOCATION</h2>
-            <p className="font-medium md:text-2xl text-lg">
+            <h2 className="md:text-2xl text-xl font-semibold">NYC LOCATION</h2>
+            <p className="font-medium md:text-lg text-md">
               657 Meeker Avenue Brooklyn, NY 11222
             </p>
           </div>

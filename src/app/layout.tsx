@@ -23,11 +23,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={cn(poppins.className, "max-w-[1920px] mx-auto")}>
-        <NewsBanner
+        {/* <NewsBanner
           text="Sign up now and get rewards."
           newsText="MaryJane VIP Coming Soon"
         />
-        <Navbar />
+        <Navbar /> */}
         {children}
       </body>
     </html>

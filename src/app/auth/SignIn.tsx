@@ -2,9 +2,9 @@
 import Field from "@/components/forms/partials/field";
 import { Button } from "@/components/ui/button";
 import { Form } from "@/components/ui/form";
-import { RegisterUser, RegisterUserSchema } from "@/types/RegisterUser";
 import { SignInUser, SigninSchema } from "@/types/SignInUser";
 import { zodResolver } from "@hookform/resolvers/zod";
+import Link from "next/link";
 import React from "react";
 import { useForm } from "react-hook-form";
 
@@ -27,20 +27,23 @@ const SignIn = (props: Props) => {
 
   return (
     <Form {...form}>
-      <div className=" flex flex-col gap-5">
-        <p className="font-bold text-theme-purple text-lg">Sign In</p>
-        <h2 className="font-medium text-4xl">Welcome Back!</h2>
-        <p className="text-md">
-          Don&apos;t have an account?{" "}
-          <span className="text-theme-purple border-b border-theme-purple ">
-            Register
-          </span>{" "}
-        </p>
-      </div>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="grid grid-cols-1 gap-6 mt-6 sm:w-[470px] ">
+        <div className="grid gap-2">
+          <p className="font-bold text-theme-purple">Sign In</p>
+          <h3 className="text-2xl">Create an Account</h3>
+          <p>
+            Don&apos;t have an account?{" "}
+            <Link
+              href={"/auth"}
+              className="underline text-theme-purple font-semibold"
+            >
+              Register
+            </Link>
+          </p>
+        </div>
+        <div className="grid gap-1 mt-4 md:max-w-[500px] w-full">
           <Field
-          className=""
+            className=""
             name="email"
             control={control}
             label="Email"
@@ -51,10 +54,10 @@ const SignIn = (props: Props) => {
             type="password"
             control={control}
             label="Password"
-            placeholder="enter password"
+            placeholder="Enter password"
           />
         </div>
-        <Button className="w-full">Sign In</Button>
+        <Button className="w-full mt-4">Sign In</Button>
       </form>
     </Form>
   );

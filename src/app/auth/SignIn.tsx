@@ -27,7 +27,7 @@ const SignIn = (props: Props) => {
 
   return (
     <Form {...form}>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form  onSubmit={handleSubmit(onSubmit)}>
         <div className="grid gap-2">
           <p className="font-bold text-theme-purple">Sign In</p>
           <h3 className="text-2xl">Create an Account</h3>

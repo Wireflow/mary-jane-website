@@ -14,10 +14,10 @@ type Props = {};
 const MobileNavbar = (props: Props) => {
   const path = usePathname();
 
-  const isHomePath = path === "/" ? "top-[6rem]" : "";
+  const isHomePath = path === "/" ? "top-[5rem]" : "bg-black";
 
   return (
-    <div className="absolute flex md:hidden justify-between w-full items-center px-6 mt-4">
+    <div className={cn("absolute flex md:hidden justify-between w-full  items-center px-6 py-3", isHomePath)}>
       <Link href={"/"}>
         <Image
           src={"/icon-logo-white.svg"}

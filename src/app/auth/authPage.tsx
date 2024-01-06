@@ -10,7 +10,7 @@ type Props = {};
 
 const AuthPage = (props: Props) => {
   return (
-    <div className="md:px-40 px-20  ">
+    <div className="md:px-40 px-5 ">
       <div className="bg-theme-yellow  relative overflow-hidden  mb-10 rounded-xl">
         <Image
           className="m-auto  md:w-[250px] w-[150px] p-2"

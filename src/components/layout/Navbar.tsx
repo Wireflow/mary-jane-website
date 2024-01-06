@@ -17,7 +17,7 @@ const Navbar = (props: Props) => {
 
   const isHomePathNavStyle = isHomePath
     ? "absolute left-0 right-0 px-8 py-10 lg:px-10"
-    : "";
+    : "bg-black max-w-[1900px] py-2 ";
   return (
     <div
       className={cn(
@@ -41,7 +41,7 @@ const Navbar = (props: Props) => {
                 <p
                   className={cn(
                     "font-semibold border-2 border-transparent px-2 py-1 rounded-xl hover:border-white transition-all duration-300",
-                    isHomePath ? "text-theme-white" : "text-theme-black"
+                    isHomePath ? "text-theme-white" : "text-theme-white"
                   )}
                 >
                   {link.display}

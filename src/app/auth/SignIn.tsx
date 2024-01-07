@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Form } from "@/components/ui/form";
 import { SignInUser, SigninSchema } from "@/types/SignInUser";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { signIn } from "next-auth/react";
 import Link from "next/link";
 import React from "react";
 import { useForm } from "react-hook-form";
@@ -22,12 +23,12 @@ const SignIn = (props: Props) => {
   const { handleSubmit, control, setValue } = form;
 
   const onSubmit = (data: SignInUser) => {
-    console.log(data);
+    signIn("credentials", { email: data.email, password: data.password });
   };
 
   return (
     <Form {...form}>
-      <form  onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <div className="grid gap-2">
           <p className="font-bold text-theme-purple">Sign In</p>
           <h3 className="text-2xl">Welcome Back!</h3>

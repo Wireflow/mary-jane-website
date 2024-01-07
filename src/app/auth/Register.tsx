@@ -1,17 +1,24 @@
 "use client";
 
 import { RegisterUser, RegisterUserSchema } from "@/types/RegisterUser";
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Form } from "@/components/ui/form";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import Field from "@/components/forms/partials/field";
+import registerUser from "@/use-cases/frontend/user/registerUser";
+import { signIn, useSession } from "next-auth/react";
 
 type Props = {};
 
+type RegisterErrors = "Unable to register user. Try again!" | null;
+
 const Register = (props: Props) => {
+  const { data: session, status } = useSession();
+
+  const [error, setError] = useState<RegisterErrors>(null);
   const form = useForm<RegisterUser>({
     resolver: zodResolver(RegisterUserSchema),
     defaultValues: {
@@ -22,10 +29,22 @@ const Register = (props: Props) => {
     },
   });
 
-  const { handleSubmit, control } = form;
+  const { handleSubmit, control, reset } = form;
 
-  const onSubmit = (data: RegisterUser) => {
-    console.log(data);
+  const onSubmit = async (data: RegisterUser) => {
+    try {
+      setError(null);
+      const newUser = await registerUser(data);
+
+      await signIn("credentials", {
+        email: data.email,
+        password: data.password,
+      });
+
+      reset();
+    } catch (error) {
+      setError("Unable to register user. Try again!");
+    }
   };
 
   return (
@@ -75,6 +94,7 @@ const Register = (props: Props) => {
             label="Password"
             placeholder="Enter password"
           />
+          {error ? <p className="text-red-500">{error}</p> : null}
         </div>
         <Button className="w-full mt-4">Register</Button>
       </form>

@@ -20,23 +20,23 @@ export default async function signInUserCredentials(
       return null;
     }
 
-    const hashedPassword = verifyUser.hashedPassword || "";
+    const hashedPassword = verifyUser.password || "";
 
     const isPasswordCorrect = await bcrypt.compare(password, hashedPassword);
+
+    console.log(isPasswordCorrect);
 
     if (isPasswordCorrect) {
       return {
         id: verifyUser.id,
         email: verifyUser.email,
         name: verifyUser.name,
-        phone: verifyUser.phone,
+        phone: verifyUser.phoneNumber,
       };
     }
 
     return null;
   } catch (error) {
     return null;
-  } finally {
-    db.$disconnect();
   }
 }

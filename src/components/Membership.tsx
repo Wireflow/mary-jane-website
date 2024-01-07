@@ -7,14 +7,16 @@ type Props = {};
 
 const Membership = (props: Props) => {
   return (
-    <Section className="bg-theme-yellow relative ">
-      <div className="flex xl:flex-row flex-col gap-10 w-full sm:mt-[0px] mt-10  ">
-        <div className="flex flex-col  gap-2">
-          <p className="font-bold text-theme-purple text-md">VIP Memberships</p>
+    <Section size="lg" className="bg-theme-yellow relative ">
+      <div className="flex xl:flex-row flex-col gap-10 w-full sm:mt-[0px] mt-[20px]  ">
+        <div className="flex flex-col  gap-3">
+          <p className="font-bold text-theme-purple sm:text-md text-sm">
+            VIP Memberships
+          </p>
           <h1 className="2xl:text-7xl sm:text-6xl text-4xl 2xl:w-[600px] sm:w-[420px] w-[220px] font-semibold">
             Mary Jane Social Club Memberships
           </h1>
-          <p className="mt-5 xl:w-full lg:w-[400px] w-full font-medium">
+          <p className=" xl:w-full lg:w-[400px] w-full font-medium">
             Simple, transparent pricing that grows with you. Try any plan free
             for 30 days.
           </p>

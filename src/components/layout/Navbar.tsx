@@ -5,19 +5,23 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
-import { User2 } from "lucide-react";
+import { LogOut, User2 } from "lucide-react";
 import { navLinks } from "@/data/navLinks";
+import { signOut, useSession } from "next-auth/react";
+import { Button } from "../ui/button";
 
 type Props = {};
 
 const Navbar = (props: Props) => {
   const path = usePathname();
 
+  const { data, status } = useSession();
+
   const isHomePath = path === "/";
 
   const isHomePathNavStyle = isHomePath
     ? "absolute left-0 right-0 px-8 py-10 lg:px-10"
-    : "bg-black max-w-[1900px] py-2 ";
+    : "bg-black max-w-[1920px] py-2 ";
   return (
     <div
       className={cn(
@@ -51,19 +55,25 @@ const Navbar = (props: Props) => {
           })}
         </div>
       </div>
-      <Link href="/auth">
-        <div className="bg-white p-1 rounded-xl flex items-center justify-center">
-          <User2 size={40} />
+      {status === "authenticated" ? (
+        <div>
+          <Button onClick={() => signOut()} className="text-white rounded-full my-2">
+          <LogOut />
+          </Button>
         </div>
-        <p
-          className={cn(
-            " text-center mt-2 font-semibold",
-            isHomePath ? "text-theme-white" : "text-theme-black"
-          )}
-        >
-          Sign in
-        </p>
-      </Link>
+      ) : (
+        <Link href="/auth" className="flex lg:flex-row flex-col lg:gap-2 items-center">
+          <div className="bg-white p-1 rounded-full flex items-center justify-center">
+            <User2 size={30} />
+          </div>
+          <p
+            className={cn(
+              " text-center mt-2 font-semibold lg:block hidden",
+              isHomePath ? "text-theme-white" : "text-theme-white"
+            )}
+          >Sign In</p>
+        </Link>
+      )}
     </div>
   );
 };

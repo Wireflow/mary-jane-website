@@ -6,7 +6,7 @@ type SectionContainerProps = {
   backgroundImage?: string;
   className?: string;
   background?: "white" | "light-blue" | "black" | "dark-blue" | "pitch-black";
-  size?: "sm" | "md" | "lg";
+  size?: "sm" | "md" | "lg" | "xs";
   maxWidth?: string | number;
 };
 
@@ -30,6 +30,7 @@ const Section = ({
     sm: "p-6 md:p-8 lg:p-10",
     md: "p-8 md:p-10 lg:p-14",
     lg: "p-8 md:p-16 lg:p-28",
+    xs: "px-8 md:px-16 lg:px-28 my-10"
   };
 
   return (

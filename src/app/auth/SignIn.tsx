@@ -4,14 +4,20 @@ import { Button } from "@/components/ui/button";
 import { Form } from "@/components/ui/form";
 import { SignInUser, SigninSchema } from "@/types/SignInUser";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { signIn } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
 import Link from "next/link";
+
+import { useRouter } from "next/navigation";
 import React from "react";
 import { useForm } from "react-hook-form";
 
 type Props = {};
 
 const SignIn = (props: Props) => {
+  const redirect = useRouter();
+  const { data, status } = useSession();
+  console.log(data);
+  console.log(status);
   const form = useForm<SignInUser>({
     resolver: zodResolver(SigninSchema),
     defaultValues: {
@@ -19,6 +25,10 @@ const SignIn = (props: Props) => {
       email: "",
     },
   });
+
+  if (status === "authenticated") {
+    redirect.push("/UserAccount");
+  }
 
   const { handleSubmit, control, setValue } = form;
 

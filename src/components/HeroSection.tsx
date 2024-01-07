@@ -12,7 +12,7 @@ const HeroSection = (props: Props) => {
       <div className="mt-16 flex md:flex-row flex-col gap-10 items-start md:items-center justify-between">
         <div className="flex flex-col gap-4">
           <EarnPointsBadget />
-          <h1 className="text-theme-white text-4xl md:text-4xl lg:text-5xl xl:text-7xl font-bold">
+          <h1 className="text-theme-white sm:text-7xl text-3xl md:text-4xl lg:text-4xl xl:text-7xl font-bold ">
             MARY JANE <br className="md:block hidden" /> SOCIAL CLUB
           </h1>
           <p className="font-semibold text-theme-yellow max-w-[500px]">

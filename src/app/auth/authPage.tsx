@@ -18,7 +18,7 @@ const AuthPage = (props: Props) => {
           src={"/FooterLogo.svg"}
           width={200}
           height={40}
-        />
+        /> 
       
       </div>
       <div className="flex sm:justify-start justify-center items-center">

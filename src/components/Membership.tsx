@@ -8,10 +8,10 @@ type Props = {};
 const Membership = (props: Props) => {
   return (
     <Section className="bg-theme-yellow relative ">
-      <div className="flex xl:flex-row flex-col gap-10 w-full ">
+      <div className="flex xl:flex-row flex-col gap-10 w-full sm:mt-[0px] mt-10  ">
         <div className="flex flex-col  gap-2">
           <p className="font-bold text-theme-purple text-md">VIP Memberships</p>
-          <h1 className="2xl:text-7xl sm:text-6xl text-4xl 2xl:w-[600px] sm:w-[420px] w-[250px] font-semibold">
+          <h1 className="2xl:text-7xl sm:text-6xl text-4xl 2xl:w-[600px] sm:w-[420px] w-[220px] font-semibold">
             Mary Jane Social Club Memberships
           </h1>
           <p className="mt-5 xl:w-full lg:w-[400px] w-full font-medium">
@@ -136,7 +136,7 @@ const Membership = (props: Props) => {
       </div>
       <div className="absolute right-0 top-0 xl:hidden block">
         <Image
-          className="lg:w-[450px] md:w-[400px] sm:w-[300px] w-[220px]"
+          className="lg:w-[450px] md:w-[400px] sm:w-[300px] w-[150px]"
           src={"/TopWeedLeaf.svg"}
           alt="leaf"
           width={450}

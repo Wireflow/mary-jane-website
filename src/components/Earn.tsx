@@ -6,7 +6,7 @@ type Props = {};
 
 const Earn = (props: Props) => {
   return (
-    <Section className="bg-black text-white " >
+    <Section  className="bg-black text-white " >
       <div className="flex flex-col gap-10">
           <div>
             <h2 className="lg:text-5xl md:text-4xl text-3xl">

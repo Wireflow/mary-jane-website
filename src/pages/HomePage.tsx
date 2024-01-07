@@ -1,3 +1,4 @@
+import ComingSoon from "@/components/ComingSoon";
 import Directions from "@/components/Directions";
 import Earn from "@/components/Earn";
 import Footer from "@/components/Footer";
@@ -12,6 +13,7 @@ const HomePage = (props: Props) => {
   return (
     <div>
       <HeroSection />
+      <ComingSoon/>
       <Earn/>
       <Membership/>
       <Directions/>

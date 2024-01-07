@@ -27,7 +27,7 @@ const Footer = (props: Props) => {
             </p>
           </div>
           <div className="flex justify-between  md:flex-row flex-col gap-5">
-            <div className="flex gap-5">
+            <div className="flex flex-col sm:flex-row gap-5">
               <Link className="sm:text-md text-sm font-semibold" href={"/"}>
                 Home
               </Link>

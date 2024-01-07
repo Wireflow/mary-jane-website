@@ -21,7 +21,7 @@ const Navbar = (props: Props) => {
   return (
     <div
       className={cn(
-        "hidden md:flex items-center justify-between w-full px-12 py-6 max-w-[1510px] mx-auto  ",
+        "hidden md:flex items-center justify-between w-full px-12 py-6 max-w-[1510px] mx-auto",
         isHomePathNavStyle
       )}
     >

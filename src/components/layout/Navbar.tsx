@@ -57,13 +57,19 @@ const Navbar = (props: Props) => {
       </div>
       {status === "authenticated" ? (
         <div>
-          <Button onClick={() => signOut()} className="text-white rounded-full my-2">
-          <LogOut />
+          <Button
+            onClick={() => signOut()}
+            className="text-white rounded-full my-2"
+          >
+            <LogOut />
           </Button>
         </div>
       ) : (
-        <Link href="/auth" className="flex lg:flex-row flex-col lg:gap-2 items-center">
-          <div className="bg-white p-1 rounded-full flex items-center justify-center">
+        <Link
+          href="/auth"
+          className="flex lg:flex-row flex-col lg:gap-2 items-center"
+        >
+          {/* <div className="bg-white p-1 rounded-full flex items-center justify-center">
             <User2 size={30} />
           </div>
           <p
@@ -71,7 +77,11 @@ const Navbar = (props: Props) => {
               " text-center mt-2 font-semibold lg:block hidden",
               isHomePath ? "text-theme-white" : "text-theme-white"
             )}
-          >Sign In</p>
+          >Sign In</p> */}
+          <Button variant={"outline"} className="font-semibold">
+            Login
+          </Button>
+          <Button className="font-semibold">Sign Up</Button>
         </Link>
       )}
     </div>

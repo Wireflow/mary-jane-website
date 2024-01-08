@@ -35,8 +35,8 @@ const RegisterHeroForm = (props: Props) => {
         className="bg-theme-white px-6 py-4 rounded-xl shadow-xl md:max-w-[550px] w-full"
       >
         <div className="grid gap-2">
-          <p className="font-bold text-theme-purple">Register</p>
-          <h3 className="text-2xl">Create an Account</h3>
+          <p className="font-bold text-theme-purple">Quick Sign Up</p>
+          <h3 className="text-2xl">Get Started Now!</h3>
           <p>
             Already have an account?{" "}
             <Link

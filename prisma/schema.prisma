@@ -47,6 +47,7 @@ model User {
   email       String    @unique
   phoneNumber String
   password    String
+  points      Int       @default(0)
   image       String?
   accounts    Account[]
   sessions    Session[]

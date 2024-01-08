@@ -19,12 +19,12 @@ export const metadata: Metadata = {
   description: "Earn Points. Redeem Rewards.",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const session = getServerSession(authOptions);
+  const session = await getServerSession(authOptions);
 
   return (
     <html lang="en">

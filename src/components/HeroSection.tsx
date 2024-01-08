@@ -1,12 +1,18 @@
+"use client";
+
 import React from "react";
 import Section from "./ui/section";
 import EarnPointsBadget from "./EarnPointsBadget";
 import { Button } from "./ui/button";
 import RegisterHeroForm from "./forms/RegisterHeroForm";
+import { useSession } from "next-auth/react";
+import Link from "next/link";
 
 type Props = {};
 
 const HeroSection = (props: Props) => {
+  const { data: session, status } = useSession();
+
   return (
     <Section backgroundImage="/img-hero.png">
       <div className="mt-16 flex md:flex-row flex-col gap-10 items-start md:items-center justify-between">
@@ -21,7 +27,21 @@ const HeroSection = (props: Props) => {
           </p>
           <Button className="w-fit px-6">Become a Member</Button>
         </div>
-        <RegisterHeroForm />
+        {status == "authenticated" ? (
+          <div>
+            <h2 className="text-theme-white text-4xl font-bold leading-[2.5rem]">
+              <span className="font-thin">Welcome back</span> <br />
+              {session?.user?.name}
+            </h2>
+            <Link passHref href={"/account"}>
+              <Button variant={"secondary"} className="font-bold mt-4">
+                Visit Dashboard
+              </Button>
+            </Link>
+          </div>
+        ) : (
+          <RegisterHeroForm />
+        )}
       </div>
     </Section>
   );

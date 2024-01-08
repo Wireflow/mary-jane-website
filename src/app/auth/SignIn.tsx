@@ -27,7 +27,7 @@ const SignIn = (props: Props) => {
   });
 
   if (status === "authenticated") {
-    redirect.push("/UserAccount");
+    redirect.push("/account");
   }
 
   const { handleSubmit, control, setValue } = form;

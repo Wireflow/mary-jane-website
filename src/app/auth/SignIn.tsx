@@ -15,9 +15,7 @@ type Props = {};
 
 const SignIn = (props: Props) => {
   const redirect = useRouter();
-  const { data, status } = useSession();
-  console.log(data);
-  console.log(status);
+  const { status } = useSession();
   const form = useForm<SignInUser>({
     resolver: zodResolver(SigninSchema),
     defaultValues: {

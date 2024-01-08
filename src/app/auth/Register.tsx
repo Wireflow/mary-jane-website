@@ -9,14 +9,14 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import Field from "@/components/forms/partials/field";
 import registerUser from "@/use-cases/frontend/user/registerUser";
-import { signIn, useSession } from "next-auth/react";
+import { signIn } from "next-auth/react";
 
 type Props = {};
 
 type RegisterErrors = "Unable to register user. Try again!" | null;
 
 const Register = (props: Props) => {
-  const { data: session, status } = useSession();
+
 
   const [error, setError] = useState<RegisterErrors>(null);
   const form = useForm<RegisterUser>({

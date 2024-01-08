@@ -3,14 +3,14 @@ import React from "react";
 import Points from "./Points";
 import UserMembership from "./UserMembership";
 import { db } from "../../../../prisma";
-// import { getServerSession } from "next-auth";
-// import { authOptions } from "@/services/next-auth";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/services/next-auth";
 
 type Props = {};
 
 const UserServices = async (props: Props) => {
-  // const session = await getServerSession(authOptions);
-  // const user = await db.user.findFirst({ where: { id: session?.user.id } });
+  const session = await getServerSession(authOptions);
+  const user = await db.user.findFirst({ where: { id: session?.user.id } });
 
   return (
     <Section size="xs">

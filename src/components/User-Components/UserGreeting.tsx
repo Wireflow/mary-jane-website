@@ -10,8 +10,8 @@ type GreetingProps = {
 
 const UserGreeting = ({ PageTitle }: GreetingProps) => {
   const redirect = useRouter();
-  const session = useSession();
-  const userName = session.data?.user?.name;
+  const { data: session, status } = useSession();
+  const userName = session?.user?.name;
   const capitalizedUserName = userName
     ? userName.charAt(0).toUpperCase() + userName.slice(1)
     : null;

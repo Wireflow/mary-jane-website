@@ -11,7 +11,7 @@ import Link from "next/link";
 type Props = {};
 
 const HeroSection = (props: Props) => {
-  const session = useSession();
+  const { data: session, status } = useSession();
 
   return (
     <Section backgroundImage="/img-hero.png">
@@ -31,7 +31,7 @@ const HeroSection = (props: Props) => {
           <div>
             <h2 className="text-theme-white text-4xl font-bold leading-[2.5rem]">
               <span className="font-thin">Welcome back</span> <br />
-              {session.data?.user?.name}
+              {session?.user?.name}
             </h2>
             <Link passHref href={"/account"}>
               <Button variant={"secondary"} className="font-bold mt-4">

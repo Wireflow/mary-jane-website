@@ -2,7 +2,7 @@ import AccountPage from "@/pages/AccountPage";
 import { authOptions } from "@/services/next-auth";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
-import { db } from "../../../prisma";
+import { db } from "../../components/prisma";
 
 type Props = {};
 

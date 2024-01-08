@@ -9,7 +9,7 @@ const DealsSection = (props: Props) => {
   return (
     <Section>
       <div className="flex flex-col gap-10">
-        <h2 className="text-black md:text-4xl text-2xl">Deals</h2>
+        <h2 className="text-black md:text-4xl text-3xl font-semibold">Deals</h2>
         <div className="flex gap-10 md:flex-row flex-col">
           {DealsData.map((deal, i) => {
             return (

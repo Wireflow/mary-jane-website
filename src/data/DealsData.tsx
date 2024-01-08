@@ -17,4 +17,10 @@ export const DealsData = [
         image: 'Bong.svg',
         price: 1.49
     },
+    {
+        sale: 'sale',
+        name: 'Papers',
+        image: 'Bong.svg',
+        price: 1.49
+    },
 ]

@@ -10,7 +10,7 @@ type Props = {};
 
 const Footer = (props: Props) => {
   return (
-    <Section className="bg-black text-white">
+    <Section  className="bg-black text-white">
       <div className="flex flex-col gap-5">
         <div className="border-b pb-5 border-gray-200 flex flex-col gap-8">
           <div className="flex flex-col gap-1">

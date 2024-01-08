@@ -12,7 +12,7 @@ const RewardsSection = (props: Props) => {
     <Section background="pitch-black">
       <div className="flex flex-col gap-10 justify-center">
         <div className="flex justify-between">
-          <h2 className="text-white md:text-4xl text-3xl">Rewards</h2>
+          <h2 className="text-white md:text-4xl text-3xl font-semibold">Rewards</h2>
           <Link
             className="flex items-center gap-2 md:text-lg text-md text-white"
             href={"/"}

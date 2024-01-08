@@ -28,7 +28,7 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
-      <body className={cn(poppins.className, "max-w-[1920px] mx-auto")}>
+      <body className={cn(poppins.className, "max-w-[1920px] mx-auto overflow-x-hidden")}>
         <Providers session={session}>
           <NewsBanner
             text="Sign up now and get rewards."

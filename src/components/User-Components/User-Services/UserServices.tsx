@@ -10,7 +10,7 @@ type Props = {};
 
 const UserServices = async (props: Props) => {
   const session = await getServerSession(authOptions);
-  const user = await db.user.findFirst({ where: { id: session?.user.id } });
+ 
 
   return (
     <Section size="xs">

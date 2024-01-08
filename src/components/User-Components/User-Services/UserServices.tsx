@@ -15,7 +15,7 @@ const UserServices = async (props: Props) => {
   return (
     <Section size="xs">
       <div className="flex flex-wrap gap-5">
-        <Points points={user?.points} />
+        <Points points={0} />
         <div className="flex-1">
           <UserMembership />
         </div>

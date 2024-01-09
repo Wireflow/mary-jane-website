@@ -12,45 +12,47 @@ const DealsSection = (props: Props) => {
     <Section>
       <div className="flex flex-col gap-10">
         <h2 className="text-black md:text-5xl text-4xl font-semibold">Deals</h2>
-        <div className="grid gap-5 grid-cols-1 lg:grid-cols-3 2xl:grid-cols-3 md:grid-rows-2 2xl:h-[700px] lg:h-[500px] md:h-[400px]">
-          <div className="md:col-span-1 col-span-3 row-span-1  bg-gray-200 rounded-2xl relative overflow-hidden md:h-full h-[300px]">
-            <div className="flex flex-col items-start p-10 gap-2">
-              <h2 className="2xl:text-4xl text-2xl  font-bold">THC & CBD</h2>
-              <Link className="flex  gap-2 md:text-lg text-md " href={"/"}>
-                View all <ArrowRight size={25} />
-              </Link>
+        <div className="grid md:grid-cols-3 gap-5 2xl:h-[700px] lg:h-[500px] md:h-[400px]">
+
+          <div className="grid grid-cols-1 gap-5 ">
+            <div className=" bg-gray-200 rounded-2xl relative overflow-hidden md:h-full h-[300px]">
+              <div className="flex flex-col items-start lg:p-10 p-3 gap-2">
+                <h2 className="2xl:text-4xl lg:text-2xl  font-bold">THC & CBD</h2>
+                <Link className="flex  gap-2 md:text-lg text-md " href={"/"}>
+                  View all <ArrowRight size={25} />
+                </Link>
+              </div>
+              {/* <Image
+                className="rounded-2xl absolute lg:-bottom-10 -bottom-6 lg:-right-[5rem] -right-[3rem] 2xl:w-[300px] lg:w-60 md:w-40 w-60"
+                src={"/dab.svg"}
+                alt="dab"
+                width={450}
+                height={100}
+              /> */}
             </div>
-            {/* <Image
-              className="rounded-2xl absolute lg:-bottom-10 -bottom-6 lg:-right-[5rem] -right-[3rem] 2xl:w-[300px] lg:w-60 md:w-40 w-60"
-              src={"/dab.svg"}
-              alt="dab"
-              width={450}
-              height={100}
-            /> */}
+            <div className=" rounded-2xl  bg-rose-100 relative md:h-full h-[300px]">
+              <div className="flex flex-col items-start lg:p-10 p-3 gap-2">
+                <h2 className="2xl:text-4xl lg:text-2xl  font-bold">Bongs</h2>
+                <Link
+                  className="flex items-center gap-2 md:text-lg text-md "
+                  href={"/"}
+                >
+                  View all <ArrowRight size={25} />
+                </Link>
+              </div>
+              <Image
+                className="absolute bottom-0 lg:-right-10 -right-10 2xl:w-[300px] lg:w-60 md:w-40 w-80"
+                src={"/bongImage.svg"}
+                alt="dab"
+                width={350}
+                height={100}
+              />
+            </div>
           </div>
 
-          <div className="md:col-span-1 col-span-3 row-span-1 md:row-start-2  rounded-2xl  bg-rose-100 relative md:h-full h-[300px]">
-            <div className="flex flex-col items-start p-10 gap-2">
-              <h2 className="2xl:text-4xl text-2xl  font-bold">Bongs</h2>
-              <Link
-                className="flex items-center gap-2 md:text-lg text-md "
-                href={"/"}
-              >
-                View all <ArrowRight size={25} />
-              </Link>
-            </div>
-            <Image
-              className="absolute bottom-0 lg:-right-10 -right-10 2xl:w-[300px] lg:w-60 md:w-40 w-80"
-              src={"/bongImage.svg"}
-              alt="dab"
-              width={350}
-              height={100}
-            />
-          </div>
-
-          <div className="md:col-span-1 col-span-3 md:row-span-2 row-span-1 md:col-start-2 col-start-1 bg-purple-200 rounded-2xl relative overflow-hidden md:h-full h-[300px]">
-          <div className="flex flex-col items-start p-10 gap-2">
-              <h2 className="2xl:text-4xl text-2xl  font-bold">Vapes</h2>
+          <div className=" bg-purple-200 rounded-2xl relative overflow-hidden md:h-full h-[400px]">
+          <div className="flex flex-col items-start lg:p-10 p-3 gap-2">
+              <h2 className="2xl:text-4xl lg:text-2xl  font-bold">Vapes</h2>
               <Link
                 className="flex items-center gap-2 md:text-lg text-md "
                 href={"/"}
@@ -67,42 +69,37 @@ const DealsSection = (props: Props) => {
             />
           </div>
 
-          <div className="md:col-span-1 col-span-3 row-span-1 md:col-start-3 col-start-1 row-start-1 bg-blue-100 rounded-2xl relative overflow-hidden md:h-full h-[300px]">
-          <div className="flex flex-col items-start p-10 gap-2">
-              <h2 className="2xl:text-4xl text-2xl  font-bold">Pipes</h2>
-              <Link
-                className="flex items-center gap-2 md:text-lg text-md "
-                href={"/"}
-              >
-                View all <ArrowRight size={25} />
-              </Link>
+          <div className="grid grid-cols-1 gap-5">
+            <div className=" bg-blue-100 rounded-2xl relative overflow-hidden md:h-full h-[200px]" style={{backgroundImage: 'url(Pipe.jpg)', backgroundRepeat: 'no-repeat', backgroundSize: '700px '}}>
+            <div className="flex flex-col items-start lg:p-10 p-3 gap-2">
+                <h2 className="2xl:text-4xl lg:text-2xl  font-bold">Pipes</h2>
+                <Link
+                  className="flex items-center gap-2 md:text-lg text-md "
+                  href={"/"}
+                >
+                  View all <ArrowRight size={25} />
+                </Link>
+              </div>
+              {/* <Image
+                className="absolute 2xl:bottom-1 md:-bottom-[10px] bottom-0 md:-right-10 -right-10 2xl:w-[300px] lg:w-60 md:w-40 w-[300px]"
+                src={"/dabrig.svg"}
+                alt="dab"
+                width={350}
+                height={100}
+              /> */}
             </div>
-            <Image
-              className="absolute 2xl:bottom-1 md:-bottom-[10px] bottom-0 md:-right-10 -right-10 2xl:w-[300px] lg:w-60 md:w-40 w-[300px]"
-              src={"/dabrig.svg"}
-              alt="dab"
-              width={350}
-              height={100}
-            />
-          </div>
-
-          <div className="md:col-span-1 col-span-3 row-span-1 md:col-start-3 md:row-start-2 bg-green-200 rounded-2xl relative overflow-hidden md:h-full h-[300px]">
-          <div className="flex flex-col items-start p-10 gap-2">
-              <h2 className="2xl:text-4xl text-2xl  font-bold">Grinders</h2>
-              <Link
-                className="flex items-center gap-2 md:text-lg text-md "
-                href={"/"}
-              >
-                View all <ArrowRight size={25} />
-              </Link>
+            <div className=" bg-green-200 rounded-2xl relative overflow-hidden lg:h-full h-[350px]   " style={{backgroundImage: 'url(Grinders.webp)', backgroundRepeat: 'no-repeat', backgroundSize: '700px '}}>
+            <div className="flex flex-col items-start lg:p-10 p-3 gap-2 absolute">
+                <h2 className="2xl:text-4xl lg:text-2xl  font-bold">Grinders</h2>
+                <Link
+                  className="flex items-center gap-2 md:text-lg text-md "
+                  href={"/"}
+                >
+                  View all <ArrowRight size={25} />
+                </Link>
+              </div>
+            
             </div>
-            <Image
-              className="md:bottom-0 absolute bottom-0 right-0 2xl:w-[300px] lg:w-[200px] md:w-[150px] w-80"
-              src={"/Grinder.svg"}
-              alt="dab"
-              width={300}
-              height={100}
-            />
           </div>
         </div>
       </div>

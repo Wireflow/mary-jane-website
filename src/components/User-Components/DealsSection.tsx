@@ -11,54 +11,54 @@ const DealsSection = (props: Props) => {
       <div className="flex flex-col gap-10">
         <h2 className="text-black md:text-5xl text-4xl font-semibold">Deals</h2>
         <div className="grid gap-5 md:grid-cols-3 md:grid-rows-3">
-          <div className="md:col-span-1 row-span-1 row-start-1 bg-yellow-200 rounded-2xl flex justify-end">
-               <Image
-                  className=" w-full rounded-2xl"
-                  src={'/dab.svg'}
-                  alt="dab"
-                  width={450}
-                  height={100}
-                />
+          <div className="md:col-span-1 row-span-1 row-start-1 bg-yellow-200 rounded-2xl relative overflow-hidden">
+            <Image
+              className=" w-full rounded-2xl absolute -bottom-20 -right-[8rem]"
+              src={"/dab.svg"}
+              alt="dab"
+              width={450}
+              height={100}
+            />
           </div>
 
-          <div className="cols-span-1 row-span-1 row-start-2 rounded-2xl bg-gray-100 flex justify-end">
-          <Image
-                  className=" w-full rounded-2xl"
-                  src={'/bongImage.svg'}
-                  alt="dab"
-                  width={450}
-                  height={100}
-                />
+          <div className="cols-span-1 row-span-1 row-start-2 rounded-2xl bg-gray-200 relative">
+            <Image
+              className="absolute bottom-0 -right-16"
+              src={"/bongImage.svg"}
+              alt="dab"
+              width={450}
+              height={100}
+            />
           </div>
 
-          <div className="md:col-span-1 col-span-3 md:row-span-2 row-span-1  md:col-start-2 col-start-1 bg-purple-200 rounded-2xl flex justify-end">
-          <Image
-                  className="md:h-full h-[400px] w-full rounded-2xl"
-                  src={'/Vapes.svg'}
-                  alt="dab"
-                  width={450}
-                  height={100}
-                />
+          <div className="md:col-span-1 col-span-3 md:row-span-2 row-span-1 md:col-start-2 col-start-1 bg-purple-200 rounded-2xl relative overflow-hidden">
+            <Image
+              className="w-full rounded-2xl absolute bottom-0 -right-10"
+              src={"/Vapes.svg"}
+              alt="dab"
+              width={450}
+              height={100}
+            />
           </div>
 
-          <div className="col-span-1 row-span-1 col-start-3 row-start-1 bg-blue-100 rounded-2xl flex justify-end">
-          <Image
-                  className=" w-full rounded-2xl"
-                  src={'/pipes.svg'}
-                  alt="dab"
-                  width={450}
-                  height={100}
-                />
+          <div className="col-span-1 row-span-1 col-start-3 row-start-1 bg-blue-100 rounded-2xl relative overflow-hidden">
+            <Image
+              className=""
+              src={"/pipes.svg"}
+              alt="dab"
+              width={450}
+              height={100}
+            />
           </div>
 
-          <div className="col-span-1 row-span-1 col-start-3 row-start-2 bg-green-200 rounded-2xl flex justify-end">
-          <Image
-                  className=" w-full rounded-2xl"
-                  src={'/Grinder.svg'}
-                  alt="dab"
-                  width={450}
-                  height={100}
-                />
+          <div className="col-span-1 row-span-1 col-start-3 row-start-2 bg-green-200 rounded-2xl relative overflow-hidden">
+            <Image
+              className=" w-full bottom-0 absolute"
+              src={"/Grinder.svg"}
+              alt="dab"
+              width={450}
+              height={100}
+            />
           </div>
         </div>
       </div>

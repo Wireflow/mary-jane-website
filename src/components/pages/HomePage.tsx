@@ -4,8 +4,7 @@ import Earn from "@/components/Earn";
 import Footer from "@/components/Footer";
 import HeroSection from "@/components/HeroSection";
 import Membership from "@/components/Membership";
-import NewsBanner from "@/components/layout/NewsBanner";
-import React from "react";
+import Memberships from "@/components/Memberships";
 
 type Props = {};
 
@@ -13,11 +12,11 @@ const HomePage = (props: Props) => {
   return (
     <div>
       <HeroSection />
-      <ComingSoon/>
-      <Earn/>
-      <Membership/>
-      <Directions/>
-      <Footer/>
+      <ComingSoon />
+      <Earn />
+      <Memberships />
+      <Directions />
+      <Footer />
     </div>
   );
 };

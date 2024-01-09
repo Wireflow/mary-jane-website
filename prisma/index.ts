@@ -1,6 +1,4 @@
-import "server-only";
 import { PrismaClient } from "@prisma/client";
-
 
 declare global {
   var catchedPrisma: PrismaClient;

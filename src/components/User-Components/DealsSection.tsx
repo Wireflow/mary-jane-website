@@ -48,7 +48,7 @@ const DealsSection = (props: Props) => {
           <div className="md:col-span-1 col-span-3 row-span-1 md:col-start-3 col-start-1 row-start-1 bg-blue-100 rounded-2xl relative overflow-hidden md:h-full h-[300px]">
             <h2 className="2xl:text-4xl text-2xl p-10 font-bold">Pipes</h2>
             <Image
-              className="absolute 2xl:bottom-1 md:-bottom-[10px] bottom-5 md:-right-10 -right-10 2xl:w-[300px] lg:w-60 md:w-40 w-[300px]"
+              className="absolute 2xl:bottom-1 md:-bottom-[10px] bottom-0 md:-right-10 -right-10 2xl:w-[300px] lg:w-60 md:w-40 w-[300px]"
               src={"/dabrig.svg"}
               alt="dab"
               width={350}

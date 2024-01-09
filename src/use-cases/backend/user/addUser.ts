@@ -1,5 +1,5 @@
 import authService from "@/services/authService";
-import { db } from "../../../../prisma";
+import { db } from "../../../services/db";
 import { RegisterUser } from "@/types/RegisterUser";
 
 const auth = authService();

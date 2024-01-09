@@ -7,7 +7,7 @@ type Props = {};
 
 const Membership = (props: Props) => {
   return (
-    <Section  size="lg" className="bg-theme-yellow relative ">
+    <Section  size="lg" className="bg-white relative ">
       <div className="flex xl:flex-row flex-col gap-10 w-full sm:mt-[0px] mt-[20px]  ">
         <div className="flex flex-col  gap-3">
           <p className="font-bold text-theme-purple sm:text-md text-sm">

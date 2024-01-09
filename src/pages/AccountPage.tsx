@@ -11,7 +11,7 @@ const AccountPage = (props: Props) => {
     <div className="mt-[100px]">
       <UserGreeting PageTitle="Your Account" />
       <UserServices />
-      <RewardsSection />
+      {/* <RewardsSection /> */}
       <DealsSection />
     </div>
   );

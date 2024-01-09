@@ -18,13 +18,13 @@ const Footer = (props: Props) => {
             <p className="font-medium md:text-xl text-sm">
               657 Meeker Avenue Brooklyn, NY 11222
             </p>
-            <Image
+            {/* <Image
               className="-ml-[1px] mb-2  md:w-[300px] w-[200px]"
               alt="Logo"
               src={"/icon-logo-white.svg"}
               width={300}
               height={40}
-            />
+            /> */}
           </div>
           <div className="flex justify-between  md:flex-row flex-col gap-5">
             <div className="flex flex-col sm:flex-row gap-5">

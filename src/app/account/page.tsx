@@ -1,4 +1,4 @@
-import AccountPage from "@/pages/AccountPage";
+import AccountPage from "@/components/pages/AccountPage";
 import { authOptions } from "@/services/next-auth";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";

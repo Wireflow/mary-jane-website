@@ -16,10 +16,6 @@ const UserGreeting = ({ PageTitle }: GreetingProps) => {
     ? userName.charAt(0).toUpperCase() + userName.slice(1)
     : null;
 
-  if (status === "unauthenticated") {
-    redirect.push('/auth')
-  }
-
   return (
     <Section size="xs" className="">
       <div>

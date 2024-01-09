@@ -1,14 +1,15 @@
 "use client";
 
+import { navLinks } from "@/data/navLinks";
 import { cn } from "@/lib/utils";
+import { LogOut } from "lucide-react";
+import { signOut, useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import React from "react";
-import { LogOut, User2 } from "lucide-react";
-import { navLinks } from "@/data/navLinks";
-import { signOut, useSession } from "next-auth/react";
 import { Button } from "../ui/button";
+import SignOut from "../auth/SignOut";
+import UserNavbar from "../auth/UserNavbar";
 
 type Props = {};
 
@@ -56,33 +57,18 @@ const Navbar = (props: Props) => {
         </div>
       </div>
       {status === "authenticated" ? (
-        <div>
-          <Button
-            onClick={() => signOut()}
-            className="text-white rounded-full my-2"
-          >
-            <LogOut />
-          </Button>
-        </div>
+        <UserNavbar />
       ) : (
-        <Link
-          href="/auth"
-          className="flex lg:flex-row flex-col lg:gap-2 items-center"
-        >
-          {/* <div className="bg-white p-1 rounded-full flex items-center justify-center">
-            <User2 size={30} />
-          </div>
-          <p
-            className={cn(
-              " text-center mt-2 font-semibold lg:block hidden",
-              isHomePath ? "text-theme-white" : "text-theme-white"
-            )}
-          >Sign In</p> */}
-          <Button variant={"outline"} className="font-semibold">
-            Login
-          </Button>
-          <Button className="font-semibold">Sign Up</Button>
-        </Link>
+        <div>
+          <Link href="/auth">
+            <Button variant={"outline"} className="font-semibold rounded-full">
+              Login
+            </Button>
+          </Link>
+          <Link href="/auth" className="ml-2 lg:inline-block hidden">
+            <Button className="font-semibold rounded-full">Sign Up</Button>
+          </Link>
+        </div>
       )}
     </div>
   );

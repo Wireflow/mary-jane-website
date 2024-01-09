@@ -1,10 +1,7 @@
-import React from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import Section from "@/components/ui/section";
-import SignIn from "./SignIn";
-import Register from "./Register";
 import Image from "next/image";
-import EarnPointsBadget from "@/components/EarnPointsBadget";
+import Register from "./Register";
+import SignIn from "./SignIn";
 
 type Props = {};
 

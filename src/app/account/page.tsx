@@ -9,9 +9,13 @@ type Props = {};
 const Account = async (props: Props) => {
   const session = await getServerSession(authOptions);
 
+  const user = await db.user.findFirst({
+    where: { id: session?.user.id },
+  });
+
   if (!session?.user) return redirect("/");
 
-  return <AccountPage />;
+  return user && <AccountPage user={user} />;
 };
 
 export default Account;

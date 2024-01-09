@@ -1,6 +1,6 @@
 import { SignInUser, SigninSchema } from "@/types/SignInUser";
 import bcrypt from "bcrypt";
-import { db } from "../../../../prisma";
+import { db } from "../../../services/db";
 import { RequestInternal } from "next-auth";
 
 export default async function signInUserCredentials(

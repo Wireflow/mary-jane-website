@@ -2,7 +2,7 @@ import Section from "@/components/ui/section";
 import React from "react";
 import Points from "./Points";
 import UserMembership from "./UserMembership";
-import { db } from "../../../../prisma";
+import { db } from "../../../services/db";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/services/next-auth";
 

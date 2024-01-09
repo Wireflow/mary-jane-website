@@ -7,7 +7,7 @@ import {
 } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
-import { db } from "../../../prisma";
+import { db } from "../../services/db";
 import { SignInUser, SigninSchema } from "@/types/SignInUser";
 import signInUserCredentials from "./providers/credentials";
 

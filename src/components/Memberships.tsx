@@ -36,7 +36,7 @@ const Memberships = (props: Props) => {
   ];
 
   return (
-    <Section>
+    <Section size="md">
       <div className="max-w-[580px] mx-auto text-center">
         <p className="text-theme-purple font-bold">Memberships</p>
         <h2 className="text-5xl font-bold">Mary Jane Social Club</h2>

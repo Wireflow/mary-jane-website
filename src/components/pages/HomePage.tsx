@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import HeroSection from "@/components/HeroSection";
 import Membership from "@/components/Membership";
 import Memberships from "@/components/Memberships";
+import Features from "../Features";
 
 type Props = {};
 
@@ -13,7 +14,7 @@ const HomePage = (props: Props) => {
     <div>
       <HeroSection />
       <ComingSoon />
-      <Earn />
+      <Features />
       <Memberships />
       <Directions />
       <Footer />

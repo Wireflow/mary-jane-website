@@ -2,7 +2,7 @@ import React from "react";
 import Section from "./ui/section";
 import Heading from "./ui/title";
 import LocationCard from "./LocationCard";
-import { MapPinIcon } from "lucide-react";
+import { MapPinIcon, Phone } from "lucide-react";
 
 type Props = {};
 
@@ -38,7 +38,7 @@ const Location = (props: Props) => {
             callToActionLink={locationLink}
           />
           <LocationCard
-            icon={<MapPinIcon />}
+            icon={<Phone />}
             title="Phone Number"
             location="+1 (123) 456-789"
             callToAction="Call Us"

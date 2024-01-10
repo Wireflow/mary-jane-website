@@ -78,3 +78,24 @@
   clip-path: polygon(0% 0%, 100% 100%, 100% 100%);
   background-color: white; /* Set the background color as needed */
 }
+
+
+
+.clip-triangle {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, -0% 100%, 20% 50%, 0 0%);
+}
+
+::-webkit-scrollbar {
+ 
+  width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #4B1195; 
+  border-radius: 100px;
+   padding-top: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}

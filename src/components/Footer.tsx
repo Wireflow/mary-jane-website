@@ -13,19 +13,7 @@ const Footer = (props: Props) => {
     <Section  className="bg-black text-white">
       <div className="flex flex-col gap-5">
         <div className="border-b pb-5 border-gray-200 flex flex-col gap-8">
-          <div className="flex flex-col gap-1">
-            <h2 className="md:text-3xl text-lg font-semibold">NYC LOCATION</h2>
-            <p className="font-medium md:text-xl text-sm">
-              657 Meeker Avenue Brooklyn, NY 11222
-            </p>
-            {/* <Image
-              className="-ml-[1px] mb-2  md:w-[300px] w-[200px]"
-              alt="Logo"
-              src={"/icon-logo-white.svg"}
-              width={300}
-              height={40}
-            /> */}
-          </div>
+   
           <div className="flex justify-between  md:flex-row flex-col gap-5">
             <div className="flex flex-col sm:flex-row gap-5">
               <Link className="sm:text-md text-sm font-semibold" href={"/"}>

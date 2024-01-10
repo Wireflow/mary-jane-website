@@ -7,11 +7,16 @@ import { Button } from "./ui/button";
 import RegisterHeroForm from "./forms/RegisterHeroForm";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
+import { ArrowUp } from "lucide-react";
 
 type Props = {};
 
 const HeroSection = (props: Props) => {
   const { data: session, status } = useSession();
+  const userName = session?.user?.name;
+  const capitalizedUserName = userName
+    ? userName.charAt(0).toUpperCase() + userName.slice(1)
+    : null;
 
   return (
     <Section backgroundImage="/img-hero.png">
@@ -25,19 +30,26 @@ const HeroSection = (props: Props) => {
             Where every purchase takes you closer to exclusive rewards! Join the
             movement – Inhale the Benefits!
           </p>
-          <Button className="w-fit px-6">Become a Member</Button>
+          <Link href={"#memberships-section"}><Button className="w-fit px-6">Become a Member</Button></Link>
         </div>
         {status == "authenticated" ? (
-          <div>
-            <h2 className="text-theme-white text-4xl font-bold leading-[2.5rem]">
-              <span className="font-thin">Welcome back</span> <br />
-              {session?.user?.name}
-            </h2>
-            <Link passHref href={"/account"}>
-              <Button variant={"secondary"} className="font-bold mt-4">
-                Visit Dashboard
-              </Button>
-            </Link>
+          <div className="bg-white  md:w-[600px] w-full  rounded-xl p-5">
+            <div className="flex justify-between">
+              <h2 className=" text-xl font-bold leading-[2rem] relative"> 
+               <span className="font-normal">Welcome back,</span> <br/>
+                 {''} {capitalizedUserName}
+              </h2>
+              <Link className="flex flex-col text-[12px] items-center font-medium"  passHref href={"/account"}>
+              
+                <ArrowUp
+                  className="text-black w-12 h-12 rotate-45"
+                  strokeWidth={1.2}
+                />  Account
+              </Link>
+            </div>
+            <div>
+
+            </div>
           </div>
         ) : (
           <RegisterHeroForm />

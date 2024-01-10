@@ -15,22 +15,15 @@ const DealsSection = (props: Props) => {
         <div className="grid md:grid-cols-3 gap-5 2xl:h-[700px] lg:h-[500px] md:h-[400px]">
 
           <div className="grid grid-cols-1 gap-5 ">
-            <div className=" bg-gray-200 rounded-2xl relative overflow-hidden md:h-full h-[300px]">
+            <div className=" bg-gray-200 rounded-2xl relative overflow-hidden md:h-full h-[300px] " style={{backgroundImage: 'url(WeedImage.png)', backgroundRepeat: 'no-repeat', backgroundSize: '700px '}}>
               <div className="flex flex-col items-start lg:p-10 p-3 gap-2">
                 <h2 className="2xl:text-4xl lg:text-2xl  font-bold">THC & CBD</h2>
                 <Link className="flex  gap-2 md:text-lg text-md " href={"/"}>
                   View all <ArrowRight size={25} />
                 </Link>
               </div>
-              {/* <Image
-                className="rounded-2xl absolute lg:-bottom-10 -bottom-6 lg:-right-[5rem] -right-[3rem] 2xl:w-[300px] lg:w-60 md:w-40 w-60"
-                src={"/dab.svg"}
-                alt="dab"
-                width={450}
-                height={100}
-              /> */}
             </div>
-            <div className=" rounded-2xl  bg-rose-100 relative md:h-full h-[300px]">
+            <div className=" rounded-2xl  bg-rose-100 relative md:h-full h-[300px] " style={{backgroundImage: 'url(bong.jpg)', backgroundRepeat: 'no-repeat', backgroundSize: '500px ', backgroundPosition: '0px top'}}>
               <div className="flex flex-col items-start lg:p-10 p-3 gap-2">
                 <h2 className="2xl:text-4xl lg:text-2xl  font-bold">Bongs</h2>
                 <Link
@@ -40,17 +33,11 @@ const DealsSection = (props: Props) => {
                   View all <ArrowRight size={25} />
                 </Link>
               </div>
-              <Image
-                className="absolute bottom-0 lg:-right-10 -right-10 2xl:w-[300px] lg:w-60 md:w-40 w-80"
-                src={"/bongImage.svg"}
-                alt="dab"
-                width={350}
-                height={100}
-              />
+            
             </div>
           </div>
 
-          <div className=" bg-purple-200 rounded-2xl relative overflow-hidden md:h-full h-[400px]">
+          <div className=" bg-purple-200 rounded-2xl relative overflow-hidden md:h-full h-[400px]" style={{backgroundImage: 'url(Vape.png)', backgroundRepeat: 'no-repeat', backgroundSize: '1200px ', backgroundPosition: 'right'}}>
           <div className="flex flex-col items-start lg:p-10 p-3 gap-2">
               <h2 className="2xl:text-4xl lg:text-2xl  font-bold">Vapes</h2>
               <Link
@@ -60,18 +47,12 @@ const DealsSection = (props: Props) => {
                 View all <ArrowRight size={25} />
               </Link>
             </div>
-            <Image
-              className="rounded-2xl absolute bottom-0 sm:-right-10 right-0 2xl:w-[400px] lg:w-80 md:w-60 w-[200px]"
-              src={"/Vapes.svg"}
-              alt="dab"
-              width={550}
-              height={550}
-            />
+         
           </div>
 
           <div className="grid grid-cols-1 gap-5">
             <div className=" bg-blue-100 rounded-2xl relative overflow-hidden md:h-full h-[200px]" style={{backgroundImage: 'url(Pipe.jpg)', backgroundRepeat: 'no-repeat', backgroundSize: '700px '}}>
-            <div className="flex flex-col items-start lg:p-10 p-3 gap-2">
+            <div className="flex flex-col items-start lg:p-10 p-3 gap-2"> 
                 <h2 className="2xl:text-4xl lg:text-2xl  font-bold">Pipes</h2>
                 <Link
                   className="flex items-center gap-2 md:text-lg text-md "

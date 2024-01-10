@@ -42,19 +42,12 @@ const MembershipCard = ({
       {...props}
       className={cn(
         "shadow-2xl shadow-purple-100 p-4 max-w-[400px] md:max-w-[400px] relative overflow-hidden z-30",
-        buttonStyle == "default" ? "text-theme-black" : "",
+        { "text-theme-black": buttonStyle === "default" },
         props.className
       )}
     >
       <CardHeader>
-        <p
-          className={cn(
-            "font-bold text-xs",
-            buttonStyle == "outline" ? "text-theme-purple" : "text-theme-white"
-          )}
-        >
-          Membership
-        </p>
+        <p className="font-bold text-xs text-theme-purple">Membership</p>
         <CardTitle className="text-3xl font-medium flex gap-2 items-center">
           {props.title}
           {bestoffer ? (
@@ -68,22 +61,31 @@ const MembershipCard = ({
           ) : null}
         </CardTitle>
 
-        <CardDescription>{props.description}</CardDescription>
+        <CardDescription className={cn("text-gray-800")}>
+          {props.description}
+        </CardDescription>
       </CardHeader>
       <CardContent>
         <div className="flex items-end gap-2">
           <h3 className="text-4xl font-semibold">${props.price}</h3>
-          <p className="mb-1.5 text-gray-500 text-sm">
+          <p className="mb-1.5 text-gray-700 text-sm">
             per {unit == "monthly" ? "month" : "year"}
           </p>
         </div>
-        <span className="block h-[1px] w-full bg-gray-200 mt-4 rounded-full" />
-        <ul className="mt-6">
+        <span
+          className={cn(
+            "block h-[1.5px] w-full bg-gray-300 mt-4 rounded-full",
+            {
+              "bg-theme-black": buttonStyle == "default",
+            }
+          )}
+        />
+        <ul className="mt-4">
           {props.bulletPoints.map((bullet, index) => {
             return (
               <li
                 key={`membership-bullet-${index}`}
-                className="flex gap-2 items-center py-2"
+                className={cn("flex gap-2 items-center py-2")}
               >
                 <CheckCircle className="w-5 h-5" />
                 {bullet}
@@ -105,9 +107,10 @@ const MembershipCard = ({
           {callToAction}
         </Button>
       </CardFooter>
+
       {buttonStyle == "default" && (
         <>
-          <div className="absolute h-[550px] w-[550px] bg-theme-purple/10 bottom-40 right-10 -z-10 rounded-full border-2 border-theme-purple/10" />
+          <div className="absolute h-[550px] w-[550px] bg-theme-purple/5 bottom-40 right-10 -z-10 rounded-full border-2 border-theme-purple/10" />
           <div className="absolute h-[300px] w-[300px] bg-theme-purple/10 -bottom-10 -right-10 -z-10 rounded-full border-2 border-theme-purple/10" />
         </>
       )}

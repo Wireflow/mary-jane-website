@@ -32,7 +32,7 @@ const Location = (props: Props) => {
           <LocationCard
             icon={<MapPinIcon />}
             title="Store Address"
-            openingTimes="Mon-Sat 9am to 5pm."
+            openingTimes="Mon-Sat 12am to 12pm."
             location="657 Meeker Ave, Brooklyn, NY 11222"
             callToAction="Get Directions"
             callToActionLink={locationLink}
@@ -40,7 +40,6 @@ const Location = (props: Props) => {
           <LocationCard
             icon={<MapPinIcon />}
             title="Phone Number"
-            openingTimes="Mon-Sat 12am to 12pm."
             location="+1 (123) 456-789"
             callToAction="Call Us"
             callToActionLink={"tel:1234567890"}

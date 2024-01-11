@@ -28,7 +28,7 @@ const Memberships = (props: Props) => {
               description={membership.description}
               price={membership.price}
               bestoffer={membership.bestoffer}
-              bulletPoints={membership.bulletPoints}
+              bulletpoints={membership.bulletpoints}
               buttonStyle={membership.buttonStyle}
               className={membership.className}
             />

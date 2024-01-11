@@ -5,7 +5,7 @@ export const membershipData: MembershipCardProps[] = [
     title: "Standard",
     description: "Unleash the Power of Your Business with Pro Plan.",
     price: 34,
-    bulletPoints: [
+    bulletpoints: [
       "Enhanced Analytics",
       "Custom Domain",
       "E-commerce Integration",
@@ -18,7 +18,7 @@ export const membershipData: MembershipCardProps[] = [
     description: "Take Your Business to New Heights with our Premium Plan.",
     price: 49,
     bestoffer: true,
-    bulletPoints: [
+    bulletpoints: [
       "Advanced Analytics Suite",
       "Exclusive Customization",
       "VIP E-commerce Integration",

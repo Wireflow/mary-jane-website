@@ -17,7 +17,7 @@ export interface MembershipCardProps extends HTMLAttributes<HTMLDivElement> {
   price: number;
   unit?: "monthly" | "yearly";
   bestoffer?: boolean;
-  bulletPoints: string[];
+  bulletpoints: string[];
   buttonStyle?: "outline" | "default";
   callToAction?: string;
 }
@@ -81,7 +81,7 @@ const MembershipCard = ({
           )}
         />
         <ul className="mt-4">
-          {props.bulletPoints.map((bullet, index) => {
+          {props.bulletpoints.map((bullet, index) => {
             return (
               <li
                 key={`membership-bullet-${index}`}

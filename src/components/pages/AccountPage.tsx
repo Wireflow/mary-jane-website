@@ -11,11 +11,13 @@ type Props = {
 
 const AccountPage = ({ user }: Props) => {
   return (
-    <div className="mt-[100px]">
-      <UserGreeting PageTitle="Your Account" />
-      <UserServices points={user?.points} />
+    <div className="mt-[100px] flex flex-col gap-5">
+      <div className="flex flex-col gap-5">
+        <UserGreeting PageTitle="Your Account" />
+        <UserServices points={user?.points} />
+      </div>
       <RewardsSection />
-      <DealsSection />
+      {/* <DealsSection /> */}
     </div>
   );
 };

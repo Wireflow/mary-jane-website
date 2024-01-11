@@ -1,4 +1,4 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ArrowUp } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 import Section from "../ui/section";
@@ -9,42 +9,36 @@ type Props = {};
 
 const RewardsSection = (props: Props) => {
   return (
-    <Section className="">
-      <div className=" w-full flex  gap-1  overflow-x-scroll scrollbar pb-5 ">
-        <div>
-          <div className="lg:w-[355px] w-[250px] h-20 bg-theme-purple clip-triangle border border-black rounded-xl p-6 text-white ">
-            <h2 className="text-2xl text-center font-semi-bold">Rewards</h2>
-          </div>
+    <Section className="bg-black text-white">
+      <div>
+        <div className="flex justify-between mb-2">
+          <h2 className="text-4xl font-semibold pb-5">Rewards</h2>
+          <p className="flex gap-1 items-center">
+            View all{" "}
+            <ArrowUp
+              className="text-white w-12 h-12 rotate-45"
+              strokeWidth={1.2}
+            />
+          </p>
         </div>
-        <div>
-          <div className="w-[300px] h-20 border border-black rounded-xl   ">
-            <h3 className="text-lg font-medium text-center">500 points</h3>
+      </div>
+      <div className="      pb-5 ">
+        <div className="flex gap-2 overflow-x-scroll scrollbar">
+          <div className="">
+            <Image
+              className="rounded-xl"
+              src={"/RawPapers.png"}
+              alt="papers"
+              width={300}
+              height={400}
+            />
+            <div className="flex flex-col gap-1 mt-2 ml-1">
+              <h2 className="text-xl font-medium">Raw Papers</h2>
+              <p className="text-md ">2000 Points</p>
+            </div>
           </div>
-        </div>
-        <div>
-          <div className="w-[300px] h-20 border border-black rounded-xl   ">
-            <h3 className="text-lg font-medium text-center">500 points</h3>
-          </div>
-        </div>
-        <div>
-          <div className="w-[300px] h-20 border border-black rounded-xl   ">
-            <h3 className="text-lg font-medium text-center">500 points</h3>
-          </div>
-        </div>
-        <div>
-          <div className="w-[300px] h-20 border border-black rounded-xl   ">
-            <h3 className="text-lg font-medium text-center">500 points</h3>
-          </div>
-        </div>
-        <div>
-          <div className="w-[300px] h-20 border border-black rounded-xl   ">
-            <h3 className="text-lg font-medium text-center">500 points</h3>
-          </div>
-        </div>
-        <div>
-          <div className="w-[300px] h-20 border border-black rounded-xl   ">
-            <h3 className="text-lg font-medium text-center">500 points</h3>
-          </div>
+        
+          
         </div>
       </div>
     </Section>

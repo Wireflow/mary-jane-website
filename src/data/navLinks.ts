@@ -1,5 +1,5 @@
 export const navLinks = [
-  { display: "Membership", path: "/memberships" },
-  { display: "Location", path: "/location" },
+  { display: "Membership", path: "/membership" },
   { display: "Rewards", path: "/rewards" },
+  { display: "About us", path: "/about" },
 ];

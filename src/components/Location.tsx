@@ -25,7 +25,7 @@ const Location = (props: Props) => {
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3023.7880269725083!2d-73.94336202358608!3d40.7226826369609!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2594c3925797b%3A0x45ad907a9c597717!2s657%20Meeker%20Ave%2C%20Brooklyn%2C%20NY%2011222!5e0!3m2!1sen!2sus!4v1704855548964!5m2!1sen!2sus"
           loading="lazy"
-          className="w-full min-h-80 md:h-[500px] rounded-2xl flex-1"
+          className="w-full min-h-80 md:h-[500px] rounded-xl flex-1"
           referrerPolicy="no-referrer-when-downgrade"
         ></iframe>
         <div className="flex flex-col sm:flex-row md:flex-col justify-between flex-[.3] items-start gap-6">

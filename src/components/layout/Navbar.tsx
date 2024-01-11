@@ -10,11 +10,17 @@ import { usePathname } from "next/navigation";
 import { Button } from "../ui/button";
 import SignOut from "../auth/SignOut";
 import UserNavbar from "../auth/UserNavbar";
+import { useEffect, useState } from "react";
 
 type Props = {};
 
 const Navbar = (props: Props) => {
   const path = usePathname();
+  const [activeLink, setActiveLink] = useState<string | null>(null);
+
+  const handleSetActiveLink = (linkPath: string) => {
+    setActiveLink(linkPath);
+  };
 
   const { data, status } = useSession();
 
@@ -41,12 +47,15 @@ const Navbar = (props: Props) => {
         </Link>
         <div className="flex gap-8">
           {navLinks.map((link, index) => {
+            const isActive = path === link.path;
             return (
               <Link href={link.path} key={`link-${index}`}>
                 <p
+                  onClick={() => handleSetActiveLink(link.path)}
                   className={cn(
-                    "font-semibold border-2 border-transparent px-2 py-1 rounded-xl hover:border-white transition-all duration-300",
-                    isHomePath ? "text-theme-white" : "text-theme-white"
+                    "font-semibold border-2 border-transparent px-2 py-1  hover:border-b-white transition-all duration-300",
+                    isHomePath ? "text-theme-white" : "text-theme-white",
+                    isActive ? "border-b-white" : "border-transparent"
                   )}
                 >
                   {link.display}

@@ -1,7 +1,7 @@
 "use client";
 
-import React from "react";
-import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet";
+import React, { useState } from "react";
+import { Sheet, SheetContent, SheetTrigger, SheetClose } from "../ui/sheet";
 import { Menu } from "lucide-react";
 import Link from "next/link";
 import { navLinks } from "@/data/navLinks";
@@ -14,6 +14,12 @@ type Props = {};
 
 const MobileNavbar = (props: Props) => {
   const path = usePathname();
+  const [activeLink, setActiveLink] = useState<String | null>(null)
+
+  const handleSetActiveLink = (linkPath: string) => {
+    setActiveLink(linkPath);
+  };
+
 
   const isHomePath = path === "/" ? "top-[5rem]" : "bg-black";
 
@@ -50,12 +56,19 @@ const MobileNavbar = (props: Props) => {
             </Link>
             <div className="mt-6 flex flex-col gap-6 ml-2">
               {navLinks.map((link, index) => {
+                const isActive = path === link.path;
                 return (
-                  <Link href={link.path} key={`link-${index}`}>
-                    <p className="text-theme-black font-semibold border-2 border-transparent py-1 rounded-xl hover:border-black transition-all duration-300">
-                      {link.display}
-                    </p>
-                  </Link>
+                  <>
+                    <SheetClose asChild>
+                      <Link href={link.path} key={`link-${index}`}>
+                        <p  onClick={() => handleSetActiveLink(link.path)} className={cn(
+                          `text-theme-black font-semibold border-2 border-transparent py-1  hover:border-b-black w-fit transition-all duration-300`, isActive ? "border-b-black" : "border-transparent"
+                        )}>
+                          {link.display}
+                        </p>
+                      </Link>
+                    </SheetClose>
+                  </>
                 );
               })}
             </div>

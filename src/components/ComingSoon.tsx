@@ -20,9 +20,9 @@ const ComingSoon = (props: Props) => {
             details and our exciting rewards program!
           </p>
         </div>
-        <div className="flex gap-6 items-center md:flex-row flex-col w-full lg:w-auto">
+        <div className="flex gap-6 items-center  xl:flex-row lg:flex-col md:flex-row flex-col w-full lg:w-auto">
           <Link href={"#features-section"} scroll className="w-full">
-            <div className="bg-white h-[115px] py-3 px-5 flex w-full items-end rounded-lg lg:w-[250px] cursor-pointer hover:bg-opacity-70 transition-colors duration-300">
+            <div className="bg-white h-[115px] py-3 px-5 flex w-full items-end rounded-lg xl:w-[250px] lg:w-[450px] cursor-pointer hover:bg-opacity-70 transition-colors duration-300">
               <div className="flex items-end gap-2 ">
                 <p className="text-theme-purple font-bold">
                   Rewards <br /> Program
@@ -36,7 +36,7 @@ const ComingSoon = (props: Props) => {
           </Link>
 
           <Link href={"#memberships-section"} scroll className="w-full">
-            <div className="group border-2 border-theme-white h-[115px] py-3 px-5 w-full flex items-end rounded-lg lg:w-[250px] cursor-pointer hover:bg-theme-white transition-colors duration-300">
+            <div className="group border-2 border-theme-white h-[115px] py-3 px-5 w-full flex items-end rounded-lg xl:w-[250px] lg:w-[450px] cursor-pointer hover:bg-theme-white transition-colors duration-300">
               <div className="flex items-end gap-2 ">
                 <p className="text-theme-white font-bold group-hover:text-theme-purple">
                   View <br /> Memberships

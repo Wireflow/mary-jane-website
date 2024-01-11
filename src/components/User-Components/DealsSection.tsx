@@ -11,7 +11,7 @@ const DealsSection = (props: Props) => {
   return (
     <Section>
       <div className="flex flex-col gap-10">
-        <h2 className="text-black md:text-5xl text-4xl font-semibold">Deals</h2>
+        {/* <h2 className="text-black md:text-5xl text-4xl font-semibold">Deals</h2> */}
         <div className="grid md:grid-cols-3 gap-5 2xl:h-[700px] lg:h-[500px] md:h-[400px]">
 
           <div className="grid grid-cols-1 gap-5 ">

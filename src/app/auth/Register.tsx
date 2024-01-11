@@ -13,11 +13,9 @@ import { signIn } from "next-auth/react";
 
 type Props = {};
 
-type RegisterErrors = "Unable to register user. Try again!" | null;
+export type RegisterErrors = "Unable to register user. Try again!" | null;
 
 const Register = (props: Props) => {
-
-
   const [error, setError] = useState<RegisterErrors>(null);
   const form = useForm<RegisterUser>({
     resolver: zodResolver(RegisterUserSchema),

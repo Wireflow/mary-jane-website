@@ -9,17 +9,17 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import MobileAddressBar from "./MobileAddressBar";
+import UserNavbar from "../auth/UserNavbar";
 
 type Props = {};
 
 const MobileNavbar = (props: Props) => {
   const path = usePathname();
-  const [activeLink, setActiveLink] = useState<String | null>(null)
+  const [activeLink, setActiveLink] = useState<String | null>(null);
 
   const handleSetActiveLink = (linkPath: string) => {
     setActiveLink(linkPath);
   };
-
 
   const isHomePath = path === "/" ? "top-[5rem]" : "bg-black";
 
@@ -61,9 +61,13 @@ const MobileNavbar = (props: Props) => {
                   <>
                     <SheetClose asChild>
                       <Link href={link.path} key={`link-${index}`}>
-                        <p  onClick={() => handleSetActiveLink(link.path)} className={cn(
-                          `text-theme-black font-semibold border-2 border-transparent py-1  hover:border-b-black w-fit transition-all duration-300`, isActive ? "border-b-black" : "border-transparent"
-                        )}>
+                        <p
+                          onClick={() => handleSetActiveLink(link.path)}
+                          className={cn(
+                            `text-theme-black font-semibold border-2 border-transparent py-1  hover:border-b-black w-fit transition-all duration-300`,
+                            isActive ? "border-b-black" : "border-transparent"
+                          )}
+                        >
                           {link.display}
                         </p>
                       </Link>
@@ -73,7 +77,12 @@ const MobileNavbar = (props: Props) => {
               })}
             </div>
           </div>
-          <MobileAddressBar />
+          <div className="flex flex-col gap-5">
+            <div className="px-10">
+              <UserNavbar />
+            </div>
+            <MobileAddressBar />
+          </div>
         </SheetContent>
       </Sheet>
     </div>

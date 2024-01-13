@@ -5,7 +5,7 @@ export const RewardsData = [
     },
     {
         points: '15000',
-        image: 'Papers.svg'
+        image: 'RawPapers.svg'
     },
     {
         points: '2000',

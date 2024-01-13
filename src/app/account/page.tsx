@@ -13,7 +13,7 @@ const Account = async (props: Props) => {
     where: { id: session?.user.id },
   });
 
-  if (!session?.user) return redirect("/");
+  if (!session?.user) return redirect("/auth");
 
   return user && <AccountPage user={user} />;
 };

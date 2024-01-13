@@ -2,7 +2,6 @@
   "name": "mary-jane-website",
   "version": "0.1.0",
   "private": true,
-  
   "scripts": {
     "dev": "next dev",
     "build": " prisma generate && next build",
@@ -25,6 +24,7 @@
     "bcrypt": "^5.1.1",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
+    "embla-carousel-react": "^8.0.0-rc19",
     "lucide-react": "^0.303.0",
     "next": "14.0.4",
     "next-auth": "^4.24.5",

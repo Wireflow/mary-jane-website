@@ -1,18 +1,22 @@
 export const RewardsData = [
     {
+        name: 'Bongs',
         points: '10000',
-        image: 'Bong.svg'
+        image: '/Bong.png'
     },
     {
+        name: 'Papers',
         points: '15000',
-        image: 'RawPapers.svg'
+        image: '/RawPapers.png'
     },
     {
+        name: 'Vapes',
         points: '2000',
-        image: 'Preroll.svg'
+        image: '/Vapes.png'
     },
     {
+        name: 'Grabba',
         points: '2000',
-        image: 'Preroll.svg'
+        image: '/Grabba.png'
     }
 ]

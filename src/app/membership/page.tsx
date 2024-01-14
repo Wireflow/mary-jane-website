@@ -1,10 +1,9 @@
-import Memberships from "@/components/membership/Memberships";
-import React from "react";
+import MembershipsPage from "@/components/pages/MembershipsPage";
 
 type Props = {};
 
-const page = (props: Props) => {
-  return <div>memberships page</div>;
+const Memberships = (props: Props) => {
+  return <MembershipsPage />;
 };
 
-export default page;
+export default Memberships;

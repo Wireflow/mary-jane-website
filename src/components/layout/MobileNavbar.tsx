@@ -63,8 +63,8 @@ const MobileNavbar = (props: Props) => {
                 const isActive = path === link.path;
                 return (
                   <>
-                    <SheetClose asChild>
-                      <Link href={link.path} key={`link-${index}`}>
+                    <SheetClose asChild key={`link-${index}`}>
+                      <Link href={link.path}>
                         <p
                           onClick={() => handleSetActiveLink(link.path)}
                           className={cn(

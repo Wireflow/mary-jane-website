@@ -3,19 +3,27 @@ import Field from "@/components/forms/partials/field";
 import { Button } from "@/components/ui/button";
 import { Form } from "@/components/ui/form";
 import { SignInUser, SigninSchema } from "@/types/SignInUser";
+import showToast from "@/utils/handleToast";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { signIn, useSession } from "next-auth/react";
 import Link from "next/link";
 
 import { useRouter } from "next/navigation";
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import { toast } from "sonner";
 
 type Props = {};
 
+type SignInErrors =
+  | "Incorrect email or password"
+  | "Couldn't sign in user"
+  | undefined;
+
 const SignIn = (props: Props) => {
-  const redirect = useRouter();
-  const { status } = useSession();
+  const router = useRouter();
+  const [signInError, setSignInError] = useState<string | undefined>(undefined);
+  const { data: session, status } = useSession();
   const form = useForm<SignInUser>({
     resolver: zodResolver(SigninSchema),
     defaultValues: {
@@ -24,15 +32,45 @@ const SignIn = (props: Props) => {
     },
   });
 
-  if (status === "authenticated") {
-    redirect.push("/account");
-  }
-
   const { handleSubmit, control, setValue } = form;
 
-  const onSubmit = (data: SignInUser) => {
-    signIn("credentials", { email: data.email, password: data.password });
+  const onSubmit = async (data: SignInUser) => {
+    try {
+      setSignInError(undefined);
+      const result = await signIn("credentials", {
+        email: data.email,
+        password: data.password,
+        redirect: false,
+      });
+
+      if (result?.ok) {
+        return showToast({
+          message: "Signed in sucessfully",
+          variant: "black",
+        });
+      }
+
+      if (result?.status === 401) {
+        return showToast({
+          message: `Invalid email or password`,
+          variant: "error",
+          setFormError: setSignInError,
+        });
+      }
+
+      if (!result?.ok) {
+        return showToast({
+          message: `Couldn't sign in with ${data.email}`,
+          variant: "error",
+          setFormError: setSignInError,
+        });
+      }
+    } catch (error) {
+      toast(`Couldn't sign in with ${data.email}`);
+    }
   };
+
+  if (status === "authenticated") return router.push("/account");
 
   return (
     <Form {...form}>
@@ -65,6 +103,7 @@ const SignIn = (props: Props) => {
             label="Password"
             placeholder="Enter password"
           />
+          {signInError && <p className="text-red-500 text-sm">{signInError}</p>}
         </div>
         <Button className="w-full mt-4">Sign In</Button>
       </form>

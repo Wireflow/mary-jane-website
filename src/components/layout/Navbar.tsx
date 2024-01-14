@@ -75,12 +75,23 @@ const Navbar = (props: Props) => {
             }`
           )}
         >
-          <Link href="/auth">
+          <Link
+            href={{
+              pathname: "/auth",
+              query: { type: "signin" },
+            }}
+          >
             <Button variant={"outline"} className="font-semibold rounded-full">
               Login
             </Button>
           </Link>
-          <Link href="/auth" className="ml-2 lg:inline-block hidden">
+          <Link
+            href={{
+              pathname: "/auth",
+              query: { type: "register" },
+            }}
+            className="ml-2 lg:inline-block hidden"
+          >
             <Button className="font-semibold rounded-full">Sign Up</Button>
           </Link>
         </div>

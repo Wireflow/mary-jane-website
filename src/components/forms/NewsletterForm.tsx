@@ -32,7 +32,7 @@ const NewsletterForm = (props: Props) => {
         <Field
           name="email"
           control={control}
-          className="bg-white rounded-md py-5 px-2 text-black"
+          className="bg-white border-black  py-5 px-2 text-black"
           placeholder="Enter your email"
         />
         <Button type="submit">Subscribe</Button>

@@ -66,7 +66,7 @@ const HeroSection = (props: Props) => {
             </div>
           </div>
         ) : null}
-        <div className="rotate-[50deg] -mt-20 ml-20 md:-rotate-12 md:-mt-[20rem] -mb-20 md:mb-0 md:ml-0 -mr-40">
+        <div className="rotate-[80deg] -mt-10 ml-10 md:-rotate-12 md:-mt-[20rem] -mb-20 md:mb-0 md:ml-0 -mr-40">
           <div className="relative">
             <Image
               src={"/img-cbd-jar.png"}

@@ -5,6 +5,7 @@ import Image from "next/image";
 import Section from "../ui/section";
 import { Button } from "../ui/button";
 import NewsletterForm from "../forms/NewsletterForm";
+import { navLinks } from "@/data/navLinks";
 
 type Props = {};
 
@@ -15,15 +16,18 @@ const Footer = (props: Props) => {
         <div className="border-b pb-5 border-gray-200 flex flex-col gap-8">
           <div className="flex justify-between md:items-center  md:flex-row flex-col gap-5">
             <div className="flex flex-col sm:flex-row gap-5">
-              <Link className="sm:text-md text-sm font-semibold" href={"/"}>
-                Home
-              </Link>
-              <Link className="sm:text-md text-sm font-semibold" href={"/"}>
-                Memberships
-              </Link>
-              <Link className="sm:text-md text-sm font-semibold" href={"/"}>
-                Location
-              </Link>
+              {navLinks.map((link, i) => {
+                return (
+                  <div key={i}>
+                    <Link
+                      className="sm:text-md text-sm font-semibold"
+                      href={link.path}
+                    >
+                    {link.display}
+                    </Link>
+                  </div>
+                );
+              })}
             </div>
             <NewsletterForm />
           </div>

@@ -9,6 +9,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import MobileAddressBar from "./MobileAddressBar";
+import UserNavbar from "../auth/UserNavbar";
 
 type Props = {};
 
@@ -77,7 +78,12 @@ const MobileNavbar = (props: Props) => {
               })}
             </div>
           </div>
-          <MobileAddressBar />
+          <div className="flex flex-col gap-5">
+            <div className="px-10">
+              <UserNavbar />
+            </div>
+            <MobileAddressBar />
+          </div>
         </SheetContent>
       </Sheet>
     </div>

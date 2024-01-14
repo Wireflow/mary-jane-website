@@ -86,7 +86,7 @@
 }
 
 ::-webkit-scrollbar {
- 
+ padding-right: 10px;
   width: 12px;
 }
 
@@ -94,6 +94,7 @@
   background-color: #4B1195; 
   border-radius: 100px;
    padding-top: 10px;
+   padding-left: 10px;
 }
 
 ::-webkit-scrollbar-track {

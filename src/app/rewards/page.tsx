@@ -1,11 +1,14 @@
-import React from 'react'
+import RewardPage from "@/components/reward-page/RewardPage";
+import React from "react";
 
-type Props = {}
+type Props = {};
 
 const page = (props: Props) => {
   return (
-    <div>rewards page</div>
-  )
-}
+    <>
+      <RewardPage />
+    </>
+  );
+};
 
-export default page
+export default page;

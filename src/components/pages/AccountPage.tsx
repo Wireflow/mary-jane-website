@@ -16,7 +16,7 @@ const AccountPage = ({ user }: Props) => {
         <UserGreeting PageTitle="Your Account" />
         <UserServices points={user?.points} />
       </div>
-      <RewardsSection />
+      {/* <RewardsSection /> */}
       <DealsSection />
     </div>
   );

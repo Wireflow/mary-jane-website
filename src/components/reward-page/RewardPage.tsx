@@ -8,7 +8,7 @@ const RewardPage = (props: Props) => {
   return (
     <div>
         <RewardHero/>
-        {/* <RewardCarousel/> */}
+        <RewardCarousel/>
     </div>
   )
 }

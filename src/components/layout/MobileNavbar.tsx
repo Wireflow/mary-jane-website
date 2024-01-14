@@ -14,19 +14,19 @@ type Props = {};
 
 const MobileNavbar = (props: Props) => {
   const path = usePathname();
-  const [activeLink, setActiveLink] = useState<String | null>(null)
+  const [open, setOpen] = useState(false);
+  const [activeLink, setActiveLink] = useState<String | null>(null);
 
   const handleSetActiveLink = (linkPath: string) => {
     setActiveLink(linkPath);
   };
-
 
   const isHomePath = path === "/" ? "top-[5rem]" : "bg-black";
 
   return (
     <div
       className={cn(
-        "absolute flex md:hidden justify-between w-full  items-center px-6 py-3",
+        "absolute flex md:hidden justify-between w-full  items-center px-6 py-3 z-20",
         isHomePath
       )}
     >
@@ -39,13 +39,13 @@ const MobileNavbar = (props: Props) => {
           height={100}
         />
       </Link>
-      <Sheet>
+      <Sheet open={open} onOpenChange={setOpen}>
         <SheetTrigger className={cn(" top-10 right-24", isHomePath)}>
           <Menu className="text-white" size={40} />
         </SheetTrigger>
-        <SheetContent className="p-0 flex flex-col justify-between h-full overflow-hidden">
+        <SheetContent className="p-0 w-full flex flex-col justify-between h-full overflow-hidden">
           <div className="p-6">
-            <Link href={"/"}>
+            <Link href={"/"} onClick={() => setOpen(false)}>
               <Image
                 src={"/icon-logo-black.svg"}
                 alt="logo"
@@ -61,9 +61,13 @@ const MobileNavbar = (props: Props) => {
                   <>
                     <SheetClose asChild>
                       <Link href={link.path} key={`link-${index}`}>
-                        <p  onClick={() => handleSetActiveLink(link.path)} className={cn(
-                          `text-theme-black font-semibold border-2 border-transparent py-1  hover:border-b-black w-fit transition-all duration-300`, isActive ? "border-b-black" : "border-transparent"
-                        )}>
+                        <p
+                          onClick={() => handleSetActiveLink(link.path)}
+                          className={cn(
+                            `text-theme-black font-semibold border-2 border-transparent py-1  hover:border-b-black w-fit transition-all duration-300`,
+                            isActive ? "border-b-black" : "border-transparent"
+                          )}
+                        >
                           {link.display}
                         </p>
                       </Link>

@@ -11,7 +11,9 @@ import Field from "@/components/forms/partials/field";
 import registerUser from "@/use-cases/frontend/user/registerUser";
 import { signIn } from "next-auth/react";
 
-type Props = {};
+type Props = {
+  email?: string;
+};
 
 export type RegisterErrors = "Unable to register user. Try again!" | null;
 
@@ -21,7 +23,7 @@ const Register = (props: Props) => {
     resolver: zodResolver(RegisterUserSchema),
     defaultValues: {
       name: "",
-      email: "",
+      email: props.email ? props.email : "",
       phone: undefined,
       password: "",
     },

@@ -41,7 +41,7 @@ export default async function RootLayout({
           />
           <Navbar />
           <MobileNavbar />
-          {children}
+          <div>{children}</div>
         </Providers>
       </body>
     </html>

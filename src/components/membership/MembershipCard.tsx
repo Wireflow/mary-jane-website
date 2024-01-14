@@ -6,10 +6,10 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "./ui/card";
+} from "../ui/card";
 import { cn } from "@/lib/utils";
 import { CheckCircle } from "lucide-react";
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 
 export interface MembershipCardProps extends HTMLAttributes<HTMLDivElement> {
   title: string;

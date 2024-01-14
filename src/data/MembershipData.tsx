@@ -1,4 +1,4 @@
-import { MembershipCardProps } from "@/components/MembershipCard";
+import { MembershipCardProps } from "@/components/membership/MembershipCard";
 
 export const membershipData: MembershipCardProps[] = [
   {

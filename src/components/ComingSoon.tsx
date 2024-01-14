@@ -7,7 +7,11 @@ type Props = {};
 
 const ComingSoon = (props: Props) => {
   return (
-    <Section background="purple" size="sm">
+    <Section
+      background="purple"
+      size="sm"
+      className=" shadow-2xl border-t-[12px] border-theme-yellow"
+    >
       <div className="flex lg:flex-row flex-col gap-8 items-center justify-between">
         <div>
           <p className="text-theme-yellow font-bold text-start">Upcoming</p>

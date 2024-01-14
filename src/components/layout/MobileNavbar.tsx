@@ -55,6 +55,9 @@ const MobileNavbar = (props: Props) => {
                 height={100}
               />
             </Link>
+            <div className="rounded-2xl bg-theme-purple px-2 py-3 mt-5">
+              <UserNavbar />
+            </div>
             <div className="mt-6 flex flex-col gap-6 ml-2">
               {navLinks.map((link, index) => {
                 const isActive = path === link.path;
@@ -79,9 +82,7 @@ const MobileNavbar = (props: Props) => {
             </div>
           </div>
           <div className="flex flex-col gap-5">
-            <div className="px-10">
-              <UserNavbar />
-            </div>
+           
             <MobileAddressBar />
           </div>
         </SheetContent>

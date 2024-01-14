@@ -25,12 +25,12 @@ const Navbar = (props: Props) => {
   const isHomePath = path === "/";
 
   const isHomePathNavStyle = isHomePath
-    ? "absolute left-0 right-0  px-8 py-10 lg:px-10 z-20"
+    ? "absolute left-0 right-0 justify-start gap-10  px-8 py-10 lg:px-10 z-20"
     : "bg-black max-w-[1920px] py-2 ";
   return (
     <div
       className={cn(
-        "hidden md:flex items-center justify-between w-full px-12 py-6 max-w-[1510px] mx-auto",
+        "hidden md:flex items-center  w-full px-12 py-6 max-w-[1510px] mx-auto",
         isHomePathNavStyle
       )}
     >

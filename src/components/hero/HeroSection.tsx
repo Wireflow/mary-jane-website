@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowUp } from "lucide-react";
+import { ArrowRight, ArrowUp } from "lucide-react";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
@@ -37,8 +37,8 @@ const HeroSection = (props: Props) => {
           </p>
           {authenticated ? (
             <Link href="/account" className="w-full">
-              <Button variant={"secondary"} className="w-full">
-                My Account
+              <Button variant={"secondary"} className="w-full flex gap-2 items-center">
+                My Account <ArrowRight size={30} className="-rotate-45" />
               </Button>
             </Link>
           ) : (

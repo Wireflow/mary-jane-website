@@ -10,11 +10,13 @@ type Props = {};
 const DealsSection = (props: Props) => {
   return (
     <Section size="sm">
-      <div className="flex flex-col gap-10">
-        {/* <h2 className="text-black md:text-5xl text-4xl font-semibold">Deals</h2> */}
-        <div className="grid md:grid-cols-2  md:grid-rows-1 grid-rows-1 gap-5 2xl:h-[700px] lg:h-[500px] md:h-[400px]">
+      <div className="flex flex-col gap-5">
+        <div>
+          <h2 className="text-black md:text-3xl text-2xl ml-2 font-semibold">Explore Our <span className="text-theme-purple bg-theme-yellow px-2 py-1 rounded-full">Rewards</span></h2>
+        </div>
+        <div className="grid lg:grid-cols-2 md:grid-cols-3 md:grid-rows-1 grid-rows-1 gap-5 2xl:h-[700px] lg:h-[500px] md:h-[400px]">
           <div
-            className=" bg-purple-200 rounded-2xl relative overflow-hidden md:h-full h-[300px] "
+            className=" bg-purple-200 rounded-2xl relative flex justify-end flex-col overflow-hidden md:h-full h-[300px] "
             style={{
               backgroundImage: "url(Vape.png)",
               backgroundRepeat: "no-repeat",
@@ -22,8 +24,8 @@ const DealsSection = (props: Props) => {
               backgroundPosition: "right",
             }}
           >
-            <div className="flex flex-col items-start lg:p-5 p-5 gap-2 text-white row-start-2">
-              <h2 className="2xl:text-4xl lg:text-2xl  font-bold">Vapes</h2>
+            <div className="flex flex-col items-start lg:p-5 p-5  text-white row-start-2">
+              <h2 className="2xl:text-4xl text-2xl  font-bold">Vapes</h2>
               <Link
                 className="flex items-center gap-2 md:text-lg text-sm font-semibold "
                 href={"/"}
@@ -32,18 +34,18 @@ const DealsSection = (props: Props) => {
               </Link>
             </div>
           </div>
-          <div className="grid grid-cols-2 gap-5 ">
+          <div className="grid sm:grid-cols-2 gap-5 lg:col-span-1 md:col-span-2 ">
             <div className="grid grid-cols-1 gap-5 ">
               <div
-                className=" bg-gray-200 rounded-2xl relative  overflow-hidden md:h-full h-[200px] min-w-full "
+                className=" bg-gray-200 rounded-2xl relative flex justify-end flex-col  overflow-hidden md:h-full sm:h-[300px]  h-[200px]"
                 style={{
-                  backgroundImage: "url(WeedImage.png)",
+                  backgroundImage: "url(Weed.jpg)",
                   backgroundRepeat: "no-repeat",
                   backgroundSize: "cover ",
                   backgroundPosition: "center",
                 }}
               >
-                <div className="flex flex-col items-start  lg:p-5 p-3">
+                <div className="flex flex-col items-start  lg:p-5 p-5 text-white">
                   <h2 className="2xl:text-4xl text-2xl  font-bold">Herbs</h2>
                   <Link className="flex  gap-2 md:text-lg text-sm font-semibold" href={"/"}>
                     View all <ArrowRight size={25} className="-rotate-45" />
@@ -51,7 +53,7 @@ const DealsSection = (props: Props) => {
                 </div>
               </div>
               <div
-                className=" rounded-2xl  bg-rose-100 relative md:h-full h-[200px] "
+                className=" rounded-2xl  bg-rose-100 flex justify-end flex-col relative md:h-full sm:h-[300px] h-[200px]"
                 style={{
                   backgroundImage: "url(bong.jpg)",
                   backgroundRepeat: "no-repeat",
@@ -59,7 +61,7 @@ const DealsSection = (props: Props) => {
                   backgroundPosition: "left",
                 }}
               >
-                <div className="flex flex-col items-start lg:p-5 p-3 ">
+                <div className="flex flex-col items-start lg:p-5 p-5 text-white">
                   <h2 className="2xl:text-4xl text-2xl  font-bold">Bongs</h2>
                   <Link
                     className="flex items-center gap-2 md:text-lg text-sm font-semibold"
@@ -72,14 +74,15 @@ const DealsSection = (props: Props) => {
             </div>
             <div className="grid grid-cols-1 gap-5 ">
               <div
-                className=" bg-gray-200 rounded-2xl relative  overflow-hidden md:h-full h-[200px] "
+                className=" bg-gray-200 rounded-2xl relative flex justify-end flex-col  overflow-hidden md:h-full sm:h-[300px] h-[200px]"
                 style={{
                   backgroundImage: "url(Pipe.jpg)",
                   backgroundRepeat: "no-repeat",
                   backgroundSize: "cover ",
+                  backgroundPosition: 'left top '
                 }}
               >
-                <div className="flex flex-col items-start lg:p-5 p-3 pb-1  ">
+                <div className="flex flex-col items-start lg:p-5 p-5  text-white ">
                   <h2 className="2xl:text-4xl text-2xl font-bold">Pipes</h2>
                   <Link
                     className="flex items-center gap-1 md:text-lg text-sm "
@@ -90,15 +93,15 @@ const DealsSection = (props: Props) => {
                 </div>
               </div>
               <div
-                className=" rounded-2xl  bg-rose-100 relative  md:h-full h-[200px] "
+                className=" rounded-2xl  bg-rose-100 relative flex justify-end flex-col  md:h-full sm:h-[300px] h-[200px] "
                 style={{
-                  backgroundImage: "url(Grinders.webp)",
+                  backgroundImage: "url(Grinder.jpg)",
                   backgroundRepeat: "no-repeat",
                   backgroundSize: "cover",
-                  backgroundPosition: "0px top",
+                  backgroundPosition: "left",
                 }}
               >
-                <div className="flex flex-col items-start lg:p-5 p-3  ">
+                <div className="flex flex-col items-start lg:p-5 p-5 text-white ">
                   <h2 className="2xl:text-4xl text-2xl  font-bold">Grinders</h2>
                   <Link
                     className="flex items-center gap-1 md:text-lg text-sm font-semibold"

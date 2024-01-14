@@ -1,17 +1,17 @@
 "use client";
 
 import React from "react";
-import Section from "./ui/section";
+import Section from "../ui/section";
 import EarnPointsBadget from "./EarnPointsBadget";
-import { Button } from "./ui/button";
-import RegisterHeroForm from "./forms/RegisterHeroForm";
-import { useSession } from "next-auth/react";
 import Link from "next/link";
+import { useSession } from "next-auth/react";
+import { Button } from "../ui/button";
 import { ArrowUp } from "lucide-react";
+import RegisterHeroForm from "../forms/RegisterHeroForm";
 
 type Props = {};
 
-const HeroSection = (props: Props) => {
+const Hero = (props: Props) => {
   const { data: session, status } = useSession();
   const userName = session?.user?.name;
   const capitalizedUserName = userName
@@ -30,26 +30,30 @@ const HeroSection = (props: Props) => {
             Where every purchase takes you closer to exclusive rewards! Join the
             movement – Inhale the Benefits!
           </p>
-          <Link href={"#memberships-section"}><Button className="w-fit px-6">Become a Member</Button></Link>
+          <Link href={"#memberships-section"}>
+            <Button className="w-fit px-6">Become a Member</Button>
+          </Link>
         </div>
         {status == "authenticated" ? (
           <div className="bg-white  md:w-[600px] w-full  rounded-xl p-5">
             <div className="flex justify-between">
-              <h2 className=" text-xl font-bold leading-[2rem] relative"> 
-               <span className="font-normal">Welcome back,</span> <br/>
-                 {''} {capitalizedUserName}
+              <h2 className=" text-xl font-bold leading-[2rem] relative">
+                <span className="font-normal">Welcome back,</span> <br />
+                {""} {capitalizedUserName}
               </h2>
-              <Link className="flex flex-col text-[12px] items-center font-medium"  passHref href={"/account"}>
-              
+              <Link
+                className="flex flex-col text-[12px] items-center font-medium"
+                passHref
+                href={"/account"}
+              >
                 <ArrowUp
                   className="text-black w-12 h-12 rotate-45"
                   strokeWidth={1.2}
-                />  Account
+                />{" "}
+                Account
               </Link>
             </div>
-            <div>
-
-            </div>
+            <div></div>
           </div>
         ) : (
           <RegisterHeroForm />
@@ -59,4 +63,4 @@ const HeroSection = (props: Props) => {
   );
 };
 
-export default HeroSection;
+export default Hero;

@@ -2,15 +2,13 @@
 
 import { navLinks } from "@/data/navLinks";
 import { cn } from "@/lib/utils";
-import { LogOut } from "lucide-react";
-import { signOut, useSession } from "next-auth/react";
+import { useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Button } from "../ui/button";
-import SignOut from "../auth/SignOut";
+import { useState } from "react";
 import UserNavbar from "../auth/UserNavbar";
-import { useEffect, useState } from "react";
+import { Button } from "../ui/button";
 
 type Props = {};
 
@@ -27,7 +25,7 @@ const Navbar = (props: Props) => {
   const isHomePath = path === "/";
 
   const isHomePathNavStyle = isHomePath
-    ? "absolute left-0 right-0 px-8 py-10 lg:px-10"
+    ? "absolute left-0 right-0  px-8 py-10 lg:px-10 z-20"
     : "bg-black max-w-[1920px] py-2 ";
   return (
     <div
@@ -68,7 +66,15 @@ const Navbar = (props: Props) => {
       {status === "authenticated" ? (
         <UserNavbar />
       ) : (
-        <div>
+        <div
+          className={cn(
+            `${
+              status === "unauthenticated" &&
+              isHomePath &&
+              "bg-theme-purple px-2 py-2 rounded-full"
+            }`
+          )}
+        >
           <Link href="/auth">
             <Button variant={"outline"} className="font-semibold rounded-full">
               Login

@@ -4,6 +4,9 @@ const baseURL = process.env.HOST || "http://localhost:3000";
 
 const axiosInstance: AxiosInstance = axios.create({
   baseURL,
+  headers: {
+    "Content-Type": "application/json",
+  },
   timeout: 10000,
 });
 

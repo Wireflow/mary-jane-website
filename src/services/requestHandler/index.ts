@@ -1,6 +1,6 @@
 import axios, { AxiosError, AxiosResponse, AxiosInstance } from "axios";
 
-const baseURL = process.env.HOST || "http://localhost:3000";
+const baseURL = process.env.HOST;
 
 const axiosInstance: AxiosInstance = axios.create({
   baseURL,

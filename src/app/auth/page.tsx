@@ -1,23 +1,18 @@
 import Section from "@/components/ui/section";
-import AuthPage from "./authPage";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/services/next-auth";
+import { db } from "../../../prisma";
+import { redirect } from "next/navigation";
+import AuthPage from "@/components/pages/AuthPage";
 
 type Props = {};
 
-const page = (props: Props) => {
-  return (
-    <div>
-      <Section
-        size="sm"
-        backgroundImage="/"
-        className="md:mt-0 bg-size-[500px] h-screen  mt-20"
-      >
-        <AuthPage />
-        {/* <div className="absolute bottom-0 left-0 z-10  md:block hidden ">
-        <Image src={"/WeedLeaf.svg"} alt="leaf" width={300} height={400} />
-      </div>  */}
-      </Section>
-    </div>
-  );
+const AuthenticationPage = async (props: Props) => {
+  const session = await getServerSession(authOptions);
+
+  if (session?.user) return redirect("/account");
+
+  return <AuthPage />;
 };
 
-export default page;
+export default AuthenticationPage;

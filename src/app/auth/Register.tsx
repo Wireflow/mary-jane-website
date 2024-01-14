@@ -10,15 +10,16 @@ import { Button } from "@/components/ui/button";
 import Field from "@/components/forms/partials/field";
 import registerUser from "@/use-cases/frontend/user/registerUser";
 import { signIn } from "next-auth/react";
+import showToast from "@/utils/handleToast";
 
 type Props = {
   email?: string;
 };
 
-export type RegisterErrors = "Unable to register user. Try again!" | null;
-
 const Register = (props: Props) => {
-  const [error, setError] = useState<RegisterErrors>(null);
+  const [registerError, setRegisterError] = useState<string | undefined>(
+    undefined
+  );
   const form = useForm<RegisterUser>({
     resolver: zodResolver(RegisterUserSchema),
     defaultValues: {
@@ -33,17 +34,27 @@ const Register = (props: Props) => {
 
   const onSubmit = async (data: RegisterUser) => {
     try {
-      setError(null);
+      setRegisterError(undefined);
       const newUser = await registerUser(data);
+      console.log(newUser);
 
-      await signIn("credentials", {
-        email: data.email,
-        password: data.password,
-      });
+      if (newUser.ok) {
+        signIn("credentials", {
+          email: data.email,
+          password: data.password,
+        });
+        return reset();
+      }
 
-      reset();
+      if (newUser.error?.status === 409) {
+        return showToast({
+          message: "Email or Phone Number Already In Use",
+          variant: "error",
+          setFormError: setRegisterError,
+        });
+      }
     } catch (error) {
-      setError("Unable to register user. Try again!");
+      setRegisterError("Unable to register user. Try again!");
     }
   };
 
@@ -94,7 +105,7 @@ const Register = (props: Props) => {
             label="Password"
             placeholder="Enter password"
           />
-          {error ? <p className="text-red-500">{error}</p> : null}
+          {registerError && <p className="text-red-500">{registerError}</p>}
         </div>
         <Button className="w-full mt-4">Register</Button>
       </form>

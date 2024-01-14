@@ -10,7 +10,16 @@ export async function POST(req: Request, res: Response) {
 
     const user = await addUser({ password, email, phone, name });
 
-    return NextResponse.json({ ...user }, { status: 200 });
+    if (!user.success) {
+      return NextResponse.json(
+        { message: user?.error },
+        { status: user?.status }
+      );
+    }
+
+    if (user.success) {
+      return NextResponse.json({ ...user?.data }, { status: 200 });
+    }
   } catch (error) {
     if (error instanceof ZodError) {
       return NextResponse.json(
@@ -18,9 +27,7 @@ export async function POST(req: Request, res: Response) {
         { status: 415 }
       );
     }
-
     console.log(error);
-
     return NextResponse.json(
       { message: "Error Registering User!", error: error },
       { status: 400 }

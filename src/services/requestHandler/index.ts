@@ -12,32 +12,54 @@ const axiosInstance: AxiosInstance = axios.create({
 
 interface ApiResponse<T> {
   data: T;
-  success: boolean;
   message?: string;
 }
 
-interface ApiError {
-  message: string;
+export interface CustomResponse<T> {
+  ok: boolean;
+  data?: T;
+  error?: {
+    message: string;
+    status?: number;
+  };
 }
 
 export default async function requestHandler<T>(
-  requestFunction: () => Promise<AxiosResponse<T>>
-): Promise<T> {
+  requestFunction: () => Promise<AxiosResponse<ApiResponse<T>>>
+): Promise<CustomResponse<T>> {
   try {
     const response = await requestFunction();
-    return response.data;
+    console.log(response);
+    if (response.status >= 200 || response.status <= 300) {
+      return { ok: true, data: response.data.data };
+    }
+    return {
+      ok: false,
+      error: { message: response.data.message || "", status: response.status },
+    };
   } catch (error) {
     console.error("Request error:", error);
 
     if (axios.isAxiosError(error)) {
       const axiosError = error as AxiosError<ApiResponse<unknown>>;
-      if (axiosError.response?.data.message) {
-        throw new Error(axiosError.response.data.message);
-      }
-      throw new Error("An unexpected API error occurred");
+      return {
+        ok: false,
+        error: {
+          message:
+            axiosError.response?.data.message ||
+            "An unexpected API error occurred",
+          status: axiosError.response?.status,
+        },
+      };
     }
 
-    throw new Error("An unexpected error occurred");
+    return {
+      ok: false,
+      error: {
+        message: "An unexpected error occurred",
+        status: 500,
+      },
+    };
   }
 }
 

@@ -17,7 +17,7 @@ const AccountPage = ({ user }: Props) => {
         <UserServices points={user?.points} />
       </div>
       <RewardsSection />
-      {/* <DealsSection /> */}
+      <DealsSection />
     </div>
   );
 };

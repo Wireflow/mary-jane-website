@@ -10,9 +10,16 @@ type Props = {};
 const RewardsSection = (props: Props) => {
   return (
     <Section className="">
-      <div className="flex flex-col gap-1 mb-5">
+      <div className="flex flex-col gap-1 ml-2 mb-5">
+        {" "}
+        <p className="md:text-xl  font-semibold mb-2 md:w-[600px]">
+          Puff, pass, and collect{" "}
+          <span className="text-theme-purple bg-theme-yellow  rounded-2xl font-bold px-3">
+            rewards
+          </span>{" "}
+        </p>
         <div className="flex justify-between items-center ">
-          <h2 className="md:text-4xl text-2xl font-semibold ">Rewards</h2>
+          <h2 className="md:text-3xl text-2xl font-semibold ">Rewards</h2>
           <Link href={"/rewards"}>
             <p className="flex md:text-lg gap-1 font-medium text-sm items-center">
               View all{" "}
@@ -23,13 +30,6 @@ const RewardsSection = (props: Props) => {
             </p>
           </Link>
         </div>
-        <p className="md:text-xl font-medium mt-2 md:w-[600px]">
-          Puff, pass, and collect{" "}
-          <span className="text-theme-purple bg-theme-yellow  rounded-2xl font-bold px-3">
-            rewards
-          </span>{" "}
-          – where every toke is a step closer to a points paradise
-        </p>
       </div>
       <div className="   ">
         <div className="sm:grid xl:grid-cols-4 sm:grid-cols-2 flex gap-2 overflow-auto scrollbar  pb-5">
@@ -39,7 +39,7 @@ const RewardsSection = (props: Props) => {
                 <Image
                   className="rounded-xl max-w-full 2xl:min-w-60 min-w-[200px]"
                   src={reward.image}
-                  alt="papers"
+                  alt="reward-image"
                   width={500}
                   height={700}
                 />

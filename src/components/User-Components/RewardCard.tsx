@@ -23,9 +23,9 @@ const RewardCard = ({ image, name, points, key }: RewardCardProps) => {
         <div className="flex flex-col  ml-1">
           <h2 className="text-xl font-medium text-white">{name}</h2>
         </div>{" "}
-        <p className="text-sm text-gray-200">
+        {/* <p className="text-sm text-gray-200">
           {points} <span className="text-theme-yellow">Points</span>
-        </p>
+        </p> */}
       </div>
     </div>
   );

@@ -92,7 +92,7 @@ const Register = (props: Props) => {
             label="Password"
             placeholder="Enter password"
           />
-          {error ? <p className="text-red-500">{error}</p> : null}
+          {error ? <p className="text-red-500 text-sm">{error}</p> : null}
         </div>
         <Button className="w-full mt-4">Register</Button>
       </form>

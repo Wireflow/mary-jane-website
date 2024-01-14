@@ -22,7 +22,7 @@ const MobileNavbar = (props: Props) => {
     setActiveLink(linkPath);
   };
 
-  const isHomePath = path === "/" ? "top-[5rem]" : "bg-black";
+  const isHomePath = path === "/" ? "top-[5rem] " : "bg-black";
 
   return (
     <div

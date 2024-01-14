@@ -25,8 +25,8 @@ const Navbar = (props: Props) => {
   const isHomePath = path === "/";
 
   const isHomePathNavStyle = isHomePath
-    ? "absolute left-0 right-0 justify-start gap-10  px-8 py-10 lg:px-10 z-20"
-    : "bg-black max-w-[1920px] py-2 ";
+    ? "absolute left-0 right-0 justify-start gap-10  px-8 py-12 lg:px-10 z-20"
+    : "bg-black max-w-[1920px] py-2 justify-between ";
   return (
     <div
       className={cn(

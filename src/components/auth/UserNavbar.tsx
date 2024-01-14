@@ -27,9 +27,9 @@ const UserNavbar = (props: Props) => {
             <AvatarImage  src="https://github.com/shadcn.png" />
             <AvatarFallback>MJ</AvatarFallback>
           </Avatar>
-          <h2 className="text-white text-xl font-semibold">{capitalizedUserName}</h2>
+          <h2 className="text-white text-xl font-semibold md:hidden block">{capitalizedUserName}</h2>
         </div>
-        <h2 className="md:hidden block mr-2 p-1 rounded-xl bg-theme-yellow text-black">4500 <span>Points</span></h2>
+        <h2 className="md:hidden block mr-2 p-1 font-medium rounded-xl bg-theme-yellow text-black">4500 <span>Points</span></h2>
       </PopoverTrigger>
       <PopoverContent>
         {" "}

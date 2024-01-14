@@ -68,7 +68,7 @@ const Heading = ({
 }: HeadingProps) => {
   return (
     <div
-      className={cn(`sm:text-center sm:mx-auto`, badgeColors[badgeColor])}
+      className={cn(`text-center mx-auto`, badgeColors[badgeColor])}
       style={{ maxWidth: width }}
     >
       <p className="font-bold">{props.badge}</p>

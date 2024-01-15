@@ -31,12 +31,12 @@ const FeaturedProducts = (props: Props) => {
                   width={300}
                   height={300}
                 />
-                <div className="absolute right-4 bottom-4 rounded-br-sm bg-theme-purple p-3 opacity-0 group-hover:opacity-100 transition-opacity">
+                <div className="absolute sm:right-4 right-0 sm:bottom-4 bottom-0 rounded-br-sm bg-theme-purple p-3 opacity-0 group-hover:opacity-100 transition-opacity">
                   <Plus color="white" />
                 </div>
               </div>
-              <div className="flex flex-col items-center  ">
-                <h3 className="font-semibold md:text-2xl text-xl">Mod Vape</h3>
+              <div className="flex flex-col sm:items-center  ">
+                <h3 className="font-semibold md:text-2xl text-lg">Mod Vape</h3>
                 <p className="font-medium text-xl text-gray-600">14.99</p>
               </div>
             </div>
@@ -52,12 +52,12 @@ const FeaturedProducts = (props: Props) => {
                   width={300}
                   height={300}
                 />
-                <div className="absolute right-4 bottom-4 rounded-br-lg bg-theme-purple p-3 opacity-0 group-hover:opacity-100 transition-opacity">
+                <div className="absolute sm:right-4 right-0 sm:bottom-4 bottom-0 rounded-br-lg bg-theme-purple p-3 opacity-0 group-hover:opacity-100 transition-opacity">
                   <Plus color="white" />
                 </div>
               </div>
-              <div className="flex flex-col items-center  ">
-                <h3 className="font-semibold md:text-2xl text-xl">Bong</h3>
+              <div className="flex flex-col sm:items-center  ">
+                <h3 className="font-semibold md:text-2xl text-lg">Bong</h3>
                 <p className="font-medium text-xl text-gray-600">35.99</p>
               </div>
             </div>
@@ -73,12 +73,12 @@ const FeaturedProducts = (props: Props) => {
                   width={300}
                   height={300}
                 />
-                <div className="absolute right-4 bottom-4 rounded-br-lg bg-theme-purple p-3 opacity-0 group-hover:opacity-100 transition-opacity">
+                <div className="absolute sm:right-4 right-0 sm:bottom-4 bottom-0 rounded-br-lg bg-theme-purple p-3 opacity-0 group-hover:opacity-100 transition-opacity">
                   <Plus color="white" />
                 </div>
               </div>
-              <div className="flex flex-col items-center  ">
-                <h3 className="font-semibold md:text-2xl text-xl">Raw Papers</h3>
+              <div className="flex flex-col sm:items-center  ">
+                <h3 className="font-semibold md:text-2xl text-lg">Raw Papers</h3>
                 <p className="font-medium text-xl text-gray-600">1.99</p>
               </div>
             </div>
@@ -94,12 +94,12 @@ const FeaturedProducts = (props: Props) => {
                   width={300}
                   height={300}
                 />
-                <div className="absolute right-4 bottom-4 rounded-br-lg bg-theme-purple p-3 opacity-0 group-hover:opacity-100 transition-opacity">
+                <div className="absolute sm:right-4 right-0 sm:bottom-4 bottom-0 rounded-br-lg bg-theme-purple p-3 opacity-0 group-hover:opacity-100 transition-opacity">
                   <Plus color="white" />
                 </div>
               </div>
-              <div className="flex flex-col items-center  ">
-                <h3 className="font-semibold md:text-2xl text-xl">Grabba</h3>
+              <div className="flex flex-col sm:items-center  ">
+                <h3 className="font-semibold md:text-2xl text-lg">Grabba</h3>
                 <p className="font-medium text-xl text-gray-600">14.99</p>
               </div>
             </div>

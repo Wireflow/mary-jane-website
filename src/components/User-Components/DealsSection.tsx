@@ -9,10 +9,10 @@ type Props = {};
 
 const DealsSection = (props: Props) => {
   return (
-    <Section size="sm">
+    <Section background="white" size="sm">
       <div className="flex flex-col gap-5">
         <div>
-          <h2 className="text-black md:text-3xl text-2xl ml-2 font-semibold">Explore Our <span className="text-theme-purple bg-theme-yellow px-2 py-1 rounded-full">Rewards</span></h2>
+          <h2 className="text-black md:text-3xl text-2xl ml-2 font-semibold uppercase">Smokey <span className="text-theme-purple uppercase font-extrabold ">Essentials</span></h2>
         </div>
         <div className="grid lg:grid-cols-2 md:grid-cols-3 md:grid-rows-1 grid-rows-1 gap-5 2xl:h-[700px] lg:h-[500px] md:h-[400px]">
           <div

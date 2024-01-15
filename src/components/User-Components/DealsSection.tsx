@@ -55,7 +55,7 @@ const DealsSection = (props: Props) => {
               <div
                 className=" rounded-2xl  bg-rose-100 flex justify-end flex-col relative md:h-full sm:h-[300px] h-[200px]"
                 style={{
-                  backgroundImage: "url(bong.jpg)",
+                  backgroundImage: "url(Bong.jpg)",
                   backgroundRepeat: "no-repeat",
                   backgroundSize: "cover ",
                   backgroundPosition: "left",

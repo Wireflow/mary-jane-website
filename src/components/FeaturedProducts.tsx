@@ -47,7 +47,7 @@ const FeaturedProducts = (props: Props) => {
               <div className="relative overflow-hidden group-hover:scale-95 transition-transform">
                 <Image
                   className="rounded-3xl  md:p-4 transition-filter transition-opacity"
-                  src={ "/bong.png"}
+                  src={ "/Bong.png"}
                   alt="vape"
                   width={300}
                   height={300}
@@ -68,7 +68,7 @@ const FeaturedProducts = (props: Props) => {
               <div className="relative overflow-hidden group-hover:scale-95 transition-transform">
                 <Image
                   className="rounded-3xl  md:p-4 transition-filter transition-opacity"
-                  src={ "/Rawpapers.png"}
+                  src={ "/RawPapers.png"}
                   alt="vape"
                   width={300}
                   height={300}

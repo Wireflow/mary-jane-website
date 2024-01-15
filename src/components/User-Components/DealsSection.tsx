@@ -35,7 +35,7 @@ const DealsSection = (props: Props) => {
             </div>
           </div>
           <div className="grid sm:grid-cols-2 gap-5 lg:col-span-1 md:col-span-2 ">
-            <div className="grid grid-cols-1 gap-5 ">
+            <div className="grid sm:grid-cols-1 grid-cols-2 gap-5 ">
               <div
                 className=" bg-gray-200 rounded-2xl relative flex justify-end flex-col  overflow-hidden md:h-full sm:h-[300px]  h-[200px]"
                 style={{
@@ -72,7 +72,7 @@ const DealsSection = (props: Props) => {
                 </div>
               </div>
             </div>
-            <div className="grid grid-cols-1 gap-5 ">
+            <div className="grid sm:grid-cols-1 grid-cols-2 gap-5 ">
               <div
                 className=" bg-gray-200 rounded-2xl relative flex justify-end flex-col  overflow-hidden md:h-full sm:h-[300px] h-[200px]"
                 style={{

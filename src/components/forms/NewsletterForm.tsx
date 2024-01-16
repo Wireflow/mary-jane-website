@@ -10,7 +10,7 @@ import { Button } from "../ui/button";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import showToast from "@/utils/handleToast";
-import subscribeNewsletter from "@/use-cases/frontend/user/subcribeNewsletter";
+import subscribeNewsletter from "@/use-cases/frontend/newsletter/subcribeNewsletter";
 
 type Props = {};
 
@@ -34,8 +34,6 @@ const NewsletterForm = (props: Props) => {
   const onSubmit = async (data: Newsletter) => {
     try {
       const result = await subscribeNewsletter(data);
-
-      console.log(result);
 
       if (result?.ok) {
         return showToast({

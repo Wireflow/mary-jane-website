@@ -1,5 +1,5 @@
 import { NewsletterSchema } from "@/types/Newsletter";
-import subscribeUserToNewsletter from "@/use-cases/backend/user/subscribeUserToNewsletter";
+import subscribeUserToNewsletter from "@/use-cases/backend/newsletter/subscribeUserToNewsletter";
 import { NextResponse } from "next/server";
 import { ZodError } from "zod";
 

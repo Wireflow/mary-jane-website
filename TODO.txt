@@ -14,6 +14,8 @@ i: In-Progress
 - [x] Setup newsletter api endpoint.
 - [x] Handle form errors correctly.
 - [x] Add newsletter backend use-case.
+- [x] Link live points to mobile navbar component.
+- [x] Make the UserNav component disappear with unauthenticated.
 
 #### In-Progress Tasks
 - [i] Finish the user navbar with profile.

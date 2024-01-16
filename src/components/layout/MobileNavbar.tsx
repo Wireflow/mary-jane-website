@@ -10,10 +10,13 @@ import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import MobileAddressBar from "./MobileAddressBar";
 import UserNavbar from "../auth/UserNavbar";
+import { useSession } from "next-auth/react";
 
 type Props = {};
 
 const MobileNavbar = (props: Props) => {
+  const { status } = useSession();
+  const authenticated = status === "authenticated";
   const path = usePathname();
   const [open, setOpen] = useState(false);
   const [activeLink, setActiveLink] = useState<String | null>(null);
@@ -55,9 +58,11 @@ const MobileNavbar = (props: Props) => {
                 height={100}
               />
             </Link>
-            <div className="rounded-2xl bg-theme-purple px-2 py-3 mt-5">
-              <UserNavbar />
-            </div>
+            {authenticated && (
+              <div className="rounded-2xl bg-theme-purple px-2 py-3 mt-5">
+                <UserNavbar />
+              </div>
+            )}
             <div className="mt-6 flex flex-col gap-6 ml-2">
               {navLinks.map((link, index) => {
                 const isActive = path === link.path;
@@ -82,7 +87,6 @@ const MobileNavbar = (props: Props) => {
             </div>
           </div>
           <div className="flex flex-col gap-5">
-           
             <MobileAddressBar />
           </div>
         </SheetContent>

@@ -7,10 +7,17 @@ import { useForm } from "react-hook-form";
 import { Form } from "../ui/form";
 import Field from "./partials/field";
 import { Button } from "../ui/button";
+import { usePathname } from "next/navigation";
+import { cn } from "@/lib/utils";
+import showToast from "@/utils/handleToast";
+import subscribeNewsletter from "@/use-cases/frontend/user/subcribeNewsletter";
 
 type Props = {};
 
 const NewsletterForm = (props: Props) => {
+  const pathname = usePathname();
+  const isHomePath = pathname === "/";
+
   const form = useForm<Newsletter>({
     resolver: zodResolver(NewsletterSchema),
     defaultValues: {
@@ -18,10 +25,44 @@ const NewsletterForm = (props: Props) => {
     },
   });
 
-  const { handleSubmit, control, register } = form;
+  const {
+    handleSubmit,
+    control,
+    formState: { isSubmitting },
+  } = form;
 
-  const onSubmit = (data: Newsletter) => {
-    console.log(data);
+  const onSubmit = async (data: Newsletter) => {
+    try {
+      const result = await subscribeNewsletter(data);
+
+      console.log(result);
+
+      if (result?.ok) {
+        return showToast({
+          message: "Subscribed to newsletter!",
+          variant: "black",
+        });
+      }
+
+      if (result?.error?.status === 409) {
+        return showToast({
+          message: "User already subscribed!",
+          variant: "error",
+        });
+      }
+
+      if (!result?.ok) {
+        return showToast({
+          message: `Failed to subscribe user!`,
+          variant: "error",
+        });
+      }
+    } catch (error) {
+      showToast({
+        message: `Failed to subscribe user!`,
+        variant: "error",
+      });
+    }
   };
   return (
     <Form {...form}>
@@ -32,10 +73,14 @@ const NewsletterForm = (props: Props) => {
         <Field
           name="email"
           control={control}
-          className="bg-white border-black  py-5 px-2 text-black"
+          className={cn("bg-white border-black  py-5 px-2 text-black", {
+            "rounded-md": !isHomePath,
+          })}
           placeholder="Enter your email"
         />
-        <Button type="submit">Subscribe</Button>
+        <Button type="submit" disabled={isSubmitting}>
+          {isSubmitting ? "Subscribing..." : "Subscribe"}
+        </Button>
       </form>
     </Form>
   );

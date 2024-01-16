@@ -32,7 +32,12 @@ const SignIn = (props: Props) => {
     },
   });
 
-  const { handleSubmit, control, setValue } = form;
+  const {
+    handleSubmit,
+    control,
+    setValue,
+    formState: { isSubmitting },
+  } = form;
 
   const onSubmit = async (data: SignInUser) => {
     try {
@@ -66,7 +71,11 @@ const SignIn = (props: Props) => {
         });
       }
     } catch (error) {
-      toast(`Couldn't sign in with ${data.email}`);
+      showToast({
+        message: `Couldn't sign in with ${data.email}`,
+        variant: "error",
+        setFormError: setSignInError,
+      });
     }
   };
 
@@ -105,7 +114,9 @@ const SignIn = (props: Props) => {
           />
           {signInError && <p className="text-red-500 text-sm">{signInError}</p>}
         </div>
-        <Button className="w-full mt-4">Sign In</Button>
+        <Button className="w-full mt-4" disabled={isSubmitting}>
+          {isSubmitting ? "Signing in..." : "Sign In"}
+        </Button>
       </form>
     </Form>
   );

@@ -29,17 +29,14 @@ export default async function requestHandler<T>(
 ): Promise<CustomResponse<T>> {
   try {
     const response = await requestFunction();
-    console.log(response);
     if (response.status >= 200 || response.status <= 300) {
-      return { ok: true, data: response.data.data };
+      return { ok: true, data: response.data };
     }
     return {
       ok: false,
       error: { message: response.data.message || "", status: response.status },
     };
   } catch (error) {
-    console.error("Request error:", error);
-
     if (axios.isAxiosError(error)) {
       const axiosError = error as AxiosError<ApiResponse<unknown>>;
       return {

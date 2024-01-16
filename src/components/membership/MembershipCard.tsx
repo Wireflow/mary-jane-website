@@ -29,13 +29,7 @@ const MembershipCard = ({
   callToAction = "Get Started",
   ...props
 }: MembershipCardProps) => {
-  const bullets = [
-    "Enhanced Analytics",
-    "Custom Domain",
-    "E-commerce Integration",
-    "Priority Support",
-    "Advanced Security",
-  ];
+  const features = props.bulletpoints.slice(0, 5);
 
   return (
     <Card
@@ -81,7 +75,7 @@ const MembershipCard = ({
           )}
         />
         <ul className="mt-4">
-          {props.bulletpoints.map((bullet, index) => {
+          {features.map((bullet, index) => {
             return (
               <li
                 key={`membership-bullet-${index}`}

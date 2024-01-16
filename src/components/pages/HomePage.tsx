@@ -15,7 +15,6 @@ const HomePage = (props: Props) => {
       <Features />
       <Memberships />
       <Location />
-      <Footer />
     </div>
   );
 };

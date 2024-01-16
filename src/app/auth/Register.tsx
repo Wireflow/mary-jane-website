@@ -30,13 +30,17 @@ const Register = (props: Props) => {
     },
   });
 
-  const { handleSubmit, control, reset } = form;
+  const {
+    handleSubmit,
+    control,
+    reset,
+    formState: { isSubmitting },
+  } = form;
 
   const onSubmit = async (data: RegisterUser) => {
     try {
       setRegisterError(undefined);
       const newUser = await registerUser(data);
-      console.log(newUser);
 
       if (newUser.ok) {
         signIn("credentials", {
@@ -107,7 +111,9 @@ const Register = (props: Props) => {
           />
           {registerError && <p className="text-red-500">{registerError}</p>}
         </div>
-        <Button className="w-full mt-4">Register</Button>
+        <Button className="w-full mt-4" disabled={isSubmitting}>
+          {isSubmitting ? "Getting you started..." : "Register"}
+        </Button>
       </form>
     </Form>
   );

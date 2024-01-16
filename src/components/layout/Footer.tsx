@@ -1,17 +1,28 @@
+"use client";
+
 import Link from "next/link";
 import React from "react";
-
 import Image from "next/image";
 import Section from "../ui/section";
 import { Button } from "../ui/button";
 import NewsletterForm from "../forms/NewsletterForm";
 import { navLinks } from "@/data/navLinks";
+import { usePathname } from "next/navigation";
+import { cn } from "@/lib/utils";
 
 type Props = {};
 
 const Footer = (props: Props) => {
+  const pathname = usePathname();
+  const isHomePath = pathname === "/";
+
   return (
-    <Section className="bg-white ">
+    <Section
+      className={cn({
+        "bg-theme-white text-theme-black": isHomePath,
+        "bg-theme-black text-theme-white": !isHomePath,
+      })}
+    >
       <div className="flex flex-col gap-5">
         <div className="border-b pb-5 border-gray-200 flex flex-col gap-8">
           <div className="flex justify-between md:items-center  md:flex-row flex-col gap-5">
@@ -23,7 +34,7 @@ const Footer = (props: Props) => {
                       className="sm:text-md text-sm font-semibold"
                       href={link.path}
                     >
-                    {link.display}
+                      {link.display}
                     </Link>
                   </div>
                 );

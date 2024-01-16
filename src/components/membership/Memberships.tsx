@@ -1,7 +1,7 @@
 import { membershipData } from "@/data/MembershipData";
 import MembershipCard from "./MembershipCard";
 import Section from "../ui/section";
-import Heading from "../ui/title";
+import Heading from "../ui/heading";
 import Circle from "../ui/circle";
 import MembershipCircles from "./MembershipCircles";
 

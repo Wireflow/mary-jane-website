@@ -3,6 +3,7 @@ import { VariantProps, cva } from "class-variance-authority";
 import React, { HTMLAttributes } from "react";
 
 type ThemeColors = "white" | "black" | "yellow" | "purple";
+type Positions = "left" | "center" | "right";
 
 const headingVariants = cva("font-bold", {
   variants: {
@@ -32,6 +33,7 @@ interface HeadingProps
   description?: string;
   width?: number;
   badgeColor?: ThemeColors;
+  position?: Positions;
   descriptionColor?:
     | "gray"
     | "light-gray"
@@ -63,13 +65,24 @@ const Heading = ({
   size,
   badgeColor = "purple",
   descriptionColor = "gray",
-  width = 580,
+  position = "center",
+  width,
   ...props
 }: HeadingProps) => {
+  const widthBasedOnPosition =
+    position === "left" && width
+      ? width
+      : position === "left"
+      ? undefined
+      : 600;
+
   return (
     <div
-      className={cn(`text-center mx-auto`, badgeColors[badgeColor])}
-      style={{ maxWidth: width }}
+      className={cn(badgeColors[badgeColor], {
+        "text-center mx-auto": position === "center",
+        "text-left": position === "left",
+      })}
+      style={{ maxWidth: widthBasedOnPosition }}
     >
       <p className="font-bold">{props.badge}</p>
       <h2 className={cn(headingVariants({ className, variant, size }))}>

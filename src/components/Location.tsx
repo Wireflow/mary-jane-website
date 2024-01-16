@@ -1,6 +1,6 @@
 import React from "react";
 import Section from "./ui/section";
-import Heading from "./ui/title";
+import Heading from "./ui/heading";
 import LocationCard from "./LocationCard";
 import { MapPinIcon, Phone } from "lucide-react";
 

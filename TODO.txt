@@ -1,0 +1,25 @@
+Updated 1/15/2024
+
+
+x: Completed
+i: In-Progress
+
+#### Completed Tasks
+- [x] Make membership card component.
+- [x] Make membership page responsive.
+- [x] Setup footer form for newsletter subscription.
+- [x] Change rewards page main banner.
+- [x] Fix spacing on far top yellow banner for coming soon.
+= [x] Add loading/disabled state to form buttons to avoid multiple requests.
+- [x] Setup newsletter api endpoint.
+- [x] Handle form errors correctly.
+- [x] Add newsletter backend use-case.
+
+#### In-Progress Tasks
+- [i] Finish the user navbar with profile.
+
+#### To-Do Tasks
+- [ ] Add buttons to mobile navbar (sign in & sign out & account).
+- [ ] Fix circle component to display tailwind styling correctly.
+
+

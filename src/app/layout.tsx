@@ -9,6 +9,9 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "@/services/next-auth";
 import Providers from "@/components/layout/Providers";
 import { Toaster } from "sonner";
+import getPathname from "@/utils/getPathname";
+import Pages from "@/components/layout/Pages";
+import Footer from "@/components/layout/Footer";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -42,8 +45,9 @@ export default async function RootLayout({
           />
           <Navbar />
           <MobileNavbar />
-          <div>{children}</div>
+          <Pages>{children}</Pages>
           <Toaster />
+          <Footer />
         </Providers>
       </body>
     </html>

@@ -1,7 +1,7 @@
 import { Coins, Crown, Gift } from "lucide-react";
 import FeatureCard from "./FeatureCard";
 import Section from "./ui/section";
-import Heading from "./ui/title";
+import Heading from "./ui/heading";
 import { featuresData } from "@/data/FeaturesData";
 import { cn } from "@/lib/utils";
 

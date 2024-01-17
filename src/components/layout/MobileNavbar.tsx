@@ -10,20 +10,16 @@ import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import MobileAddressBar from "./MobileAddressBar";
 import UserNavbar from "../auth/UserNavbar";
-import { useSession } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
+import { Button } from "../ui/button";
 
 type Props = {};
 
 const MobileNavbar = (props: Props) => {
-  const { status } = useSession();
+  const [open, setOpen] = useState(false);
+  const { data: session, status } = useSession();
   const authenticated = status === "authenticated";
   const path = usePathname();
-  const [open, setOpen] = useState(false);
-  const [activeLink, setActiveLink] = useState<String | null>(null);
-
-  const handleSetActiveLink = (linkPath: string) => {
-    setActiveLink(linkPath);
-  };
 
   const isHomePath = path === "/" ? "top-[5rem] " : "bg-black";
 
@@ -66,27 +62,68 @@ const MobileNavbar = (props: Props) => {
             <div className="mt-6 flex flex-col gap-6 ml-2">
               {navLinks.map((link, index) => {
                 const isActive = path === link.path;
-                return (
-                  <>
-                    <SheetClose asChild key={`link-${index}`}>
-                      <Link href={link.path}>
-                        <p
-                          onClick={() => handleSetActiveLink(link.path)}
-                          className={cn(
-                            `text-theme-black font-semibold border-2 border-transparent py-1  hover:border-b-black w-fit transition-all duration-300`,
-                            isActive ? "border-b-black" : "border-transparent"
-                          )}
-                        >
-                          {link.display}
-                        </p>
-                      </Link>
-                    </SheetClose>
-                  </>
-                );
+                const Protected = link.protected && !session?.user;
+
+                if (!Protected)
+                  return (
+                    <>
+                      <SheetClose asChild key={`link-${index}`}>
+                        <Link href={link.path}>
+                          <p
+                            className={cn(
+                              `text-theme-black font-semibold border-2 border-transparent py-1 hover:border-b-black w-fit transition-all duration-300`,
+                              isActive ? "border-b-black" : "border-transparent"
+                            )}
+                          >
+                            {link.display}
+                          </p>
+                        </Link>
+                      </SheetClose>
+                    </>
+                  );
               })}
             </div>
           </div>
           <div className="flex flex-col gap-5">
+            {authenticated ? (
+              <Button
+                className="mx-6"
+                variant={"destructive"}
+                onClick={async () =>
+                  await signOut({ redirect: true, callbackUrl: "/" })
+                }
+              >
+                Log out
+              </Button>
+            ) : (
+              <div className="flex gap-2 mx-6">
+                <Link
+                  href={{
+                    pathname: "/auth",
+                    query: { type: "signin" },
+                  }}
+                  className="flex-1"
+                  onClick={() => setOpen(false)}
+                >
+                  <Button className="w-full">Sign in</Button>
+                </Link>
+                <Link
+                  href={{
+                    pathname: "/auth",
+                    query: { type: "register" },
+                  }}
+                  className="flex-1"
+                  onClick={() => setOpen(false)}
+                >
+                  <Button
+                    variant={"outline"}
+                    className="border-2 w-full border-theme-purple text-theme-purple font-bold"
+                  >
+                    Register
+                  </Button>
+                </Link>
+              </div>
+            )}
             <MobileAddressBar />
           </div>
         </SheetContent>

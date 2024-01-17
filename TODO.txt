@@ -1,27 +1,30 @@
-Updated 1/15/2024
+Updated 1/16/2024
 
 
 x: Completed
 i: In-Progress
 
 #### Completed Tasks
-- [x] Make membership card component.
-- [x] Make membership page responsive.
-- [x] Setup footer form for newsletter subscription.
-- [x] Change rewards page main banner.
-- [x] Fix spacing on far top yellow banner for coming soon.
-= [x] Add loading/disabled state to form buttons to avoid multiple requests.
-- [x] Setup newsletter api endpoint.
-- [x] Handle form errors correctly.
-- [x] Add newsletter backend use-case.
-- [x] Link live points to mobile navbar component.
-- [x] Make the UserNav component disappear with unauthenticated.
+- [x] Add real name initials to UserNavbar component.
+- [x] Finish the user navbar with profile.
+- [x] Add buttons to mobile navbar (sign in & sign out & account).
+- [x] Initiate react resend as a service to start designing email api.
+- [x] Create verification code table in prisma and connect with user table.
+
 
 #### In-Progress Tasks
-- [i] Finish the user navbar with profile.
 
 #### To-Do Tasks
-- [ ] Add buttons to mobile navbar (sign in & sign out & account).
+- [ ] Make send forgot password use-case.
+- [ ] Implement code verification api to change password.
+- [ ] Differentiate between the two plans using styling.
+- [ ] Add circles to the memberships page.
 - [ ] Fix circle component to display tailwind styling correctly.
+- [ ] Init account settings page.
+- [ ] Add forgot password page. 
+- [ ] Add reset password functionaility.
+- [ ] Add forgot password functionaility.
+
+
 
 

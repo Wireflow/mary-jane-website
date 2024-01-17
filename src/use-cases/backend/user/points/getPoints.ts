@@ -1,9 +1,5 @@
-import authService from "@/services/authService";
-import { db } from "../../../../../prisma";
-import { RegisterUser } from "@/types/RegisterUser";
-import { NextResponse } from "next/server";
-import { User } from "@prisma/client";
 import { UseCaseReturn } from "@/types/UseCases";
+import { db } from "../../../../../prisma";
 
 export default async function getPoints(
   userId: string

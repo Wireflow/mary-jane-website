@@ -9,7 +9,7 @@ type Props = {};
 
 const Features = (props: Props) => {
   return (
-    <Section size="sm" background="black" id="features-section">
+    <Section background="black" id="features-section">
       <Heading
         width={600}
         badgeColor="yellow"

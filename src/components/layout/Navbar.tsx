@@ -43,14 +43,17 @@ const Navbar = (props: Props) => {
           />
         </Link>
         <div className="flex gap-8">
-          {navLinks.map((link, index) => (
-            <NavLink
-              path={link.path}
-              key={index}
-              displayText={link.display}
-              isActive={path === link.path}
-            />
-          ))}
+          {navLinks.map((link, index) => {
+            if (link.path !== "/account/settings")
+              return (
+                <NavLink
+                  path={link.path}
+                  key={index}
+                  displayText={link.display}
+                  isActive={path === link.path}
+                />
+              );
+          })}
         </div>
       </div>
       {authenticated ? (

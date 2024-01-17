@@ -114,6 +114,12 @@ const SignIn = (props: Props) => {
           />
           {signInError && <p className="text-red-500 text-sm">{signInError}</p>}
         </div>
+        <p className="flex gap-1 mt-2 text-sm text-gray-600">
+          Forgot password?
+          <p className="text-theme-purple underline underline-offset-4 cursor-pointer">
+            Reset
+          </p>
+        </p>
         <Button className="w-full mt-4" disabled={isSubmitting}>
           {isSubmitting ? "Signing in..." : "Sign In"}
         </Button>

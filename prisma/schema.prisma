@@ -42,18 +42,31 @@ model Session {
 }
 
 model User {
-  id          String    @id @default(cuid())
-  name        String
-  email       String    @unique
-  phoneNumber String
-  password    String
-  points      Int       @default(0)
-  image       String?
-  accounts    Account[]
-  sessions    Session[]
+  id                String             @id @default(cuid())
+  name              String
+  email             String             @unique
+  phoneNumber       String
+  password          String
+  points            Int                @default(0)
+  image             String?
+  accounts          Account[]
+  sessions          Session[]
+  verificationCodes VerificationCode[]
 }
 
 model Newsletter {
   id    String @id @default(cuid())
   email String @unique
+}
+
+model VerificationCode {
+  id         String   @id @default(cuid())
+  code       Int
+  expiration DateTime
+  createdAt  DateTime @default(now())
+  User       User?    @relation(fields: [userId], references: [id])
+  verified   Boolean  @default(false)
+  userId     String?
+
+  @@index([userId])
 }

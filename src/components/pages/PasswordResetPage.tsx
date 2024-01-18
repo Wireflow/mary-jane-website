@@ -33,7 +33,7 @@ const PasswordResetPage = (props: Props) => {
 
   return (
     <div className="min-h-screen flex md:justify-center md:items-center">
-      {/* {!isEmailSent ? (
+      {!isEmailSent ? (
         <SendEmailCodeForm
           setEmail={setEmail}
           isEmailSent={isEmailSent}
@@ -45,9 +45,9 @@ const PasswordResetPage = (props: Props) => {
           email={email}
           setVerified={setVerified}
         />
-      ) : ( */}
-      <ResetPasswordForm />
-      {/* )} */}
+      ) : (
+        <ResetPasswordForm />
+      )}
     </div>
   );
 };

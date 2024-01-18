@@ -34,7 +34,7 @@ export default async function sendVerificationCode(
     emailService.send({
       from: "maryjanesocialclubnyc@gmail.com",
       to: existingUser.email,
-      subject: `Mary Jane - Code ${newVerificationCode.code}`,
+      subject: `Mary Jane - Password Reset: ${newVerificationCode.code}`,
       html: `<p>You have request to change your password, here's your code: ${newVerificationCode.code} </p>`,
     });
 

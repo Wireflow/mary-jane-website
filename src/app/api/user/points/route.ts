@@ -1,4 +1,5 @@
 import { authOptions } from "@/services/next-auth";
+import getServerAuth from "@/services/next-auth/getServerAuth";
 import { NewsletterSchema } from "@/types/Newsletter";
 import subscribeUserToNewsletter from "@/use-cases/backend/newsletter/subscribeUserToNewsletter";
 import getPoints from "@/use-cases/backend/user/points/getPoints";
@@ -8,9 +9,9 @@ import { ZodError } from "zod";
 
 export async function GET(req: Request, res: Response) {
   try {
-    const session = await getServerSession(authOptions);
+    const { authenticated, session } = await getServerAuth();
 
-    if (!session) {
+    if (!session?.user || !authenticated) {
       return NextResponse.json(
         { message: "Unauthorized Request" },
         { status: 401 }

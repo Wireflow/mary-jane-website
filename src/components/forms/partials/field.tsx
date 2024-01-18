@@ -13,10 +13,11 @@ import {
 import { Input } from "@/components/ui/input";
 import { twMerge } from "tailwind-merge";
 import { RegisterUser } from "@/types/RegisterUser";
+import { NewPassword } from "@/types/ResetPassword";
 
 interface FieldProps extends InputHTMLAttributes<HTMLInputElement> {
   control: any;
-  name: FieldPath<RegisterUser>;
+  name: FieldPath<RegisterUser | NewPassword>;
   label?: string;
   size?: number;
   description?: string;
@@ -24,7 +25,7 @@ interface FieldProps extends InputHTMLAttributes<HTMLInputElement> {
   className?: string;
   rules?:
     | Omit<
-        RegisterOptions<RegisterUser>,
+        RegisterOptions<RegisterUser | NewPassword>,
         "disabled" | "valueAsNumber" | "valueAsDate" | "setValueAs"
       >
     | undefined;

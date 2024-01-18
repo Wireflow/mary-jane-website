@@ -12,6 +12,7 @@ import { Toaster } from "sonner";
 import getPathname from "@/utils/getPathname";
 import Pages from "@/components/layout/Pages";
 import Footer from "@/components/layout/Footer";
+import { LayoutProvider } from "@/components/layout/LayoutProvider";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -39,15 +40,7 @@ export default async function RootLayout({
         )}
       >
         <Providers session={session}>
-          <NewsBanner
-            text="Sign up now and get rewards."
-            newsText="MaryJane VIP Coming Soon"
-          />
-          <Navbar />
-          <MobileNavbar />
-          <Pages>{children}</Pages>
-          <Toaster />
-          <Footer />
+          <LayoutProvider>{children}</LayoutProvider>
         </Providers>
       </body>
     </html>

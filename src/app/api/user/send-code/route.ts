@@ -17,7 +17,7 @@ export async function POST(req: Request, res: Response) {
     }
 
     if (code.success) {
-      return NextResponse.json({ code: code?.data }, { status: 200 });
+      return NextResponse.json({ sent: true }, { status: 200 });
     }
   } catch (error) {
     console.log(error);

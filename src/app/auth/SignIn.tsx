@@ -116,9 +116,12 @@ const SignIn = (props: Props) => {
         </div>
         <p className="flex gap-1 mt-2 text-sm text-gray-600">
           Forgot password?
-          <p className="text-theme-purple underline underline-offset-4 cursor-pointer">
+          <Link
+            href={"/password/reset"}
+            className="text-theme-purple/80 underline underline-offset-4 cursor-pointer hover:text-theme-purple "
+          >
             Reset
-          </p>
+          </Link>
         </p>
         <Button className="w-full mt-4" disabled={isSubmitting}>
           {isSubmitting ? "Signing in..." : "Sign In"}

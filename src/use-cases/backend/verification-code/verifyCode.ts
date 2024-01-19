@@ -2,7 +2,7 @@ import emailService from "@/services/emailService";
 import { UseCaseReturn } from "@/types/UseCases";
 import generateVerificationCode from "@/utils/generateEmailCode";
 import { VerificationCode } from "@prisma/client";
-import { db } from "../../../../../prisma";
+import { db } from "../../../../prisma";
 
 type VerifyCode = { code: number; email: string };
 

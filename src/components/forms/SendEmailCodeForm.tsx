@@ -8,8 +8,8 @@ import { useForm } from "react-hook-form";
 import { Button } from "../ui/button";
 import { Form } from "../ui/form";
 import Field from "./partials/field";
-import sendUserVerificationCode from "@/use-cases/frontend/user/send-code/sendUserVerificationCode";
-import showToast from "@/utils/handleToast";
+import sendUserVerificationCode from "@/use-cases/frontend/verification-code/sendUserVerificationCode";
+import showToast from "@/utils/showToast";
 import { Check } from "lucide-react";
 import { useState } from "react";
 

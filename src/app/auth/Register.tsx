@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button";
 import Field from "@/components/forms/partials/field";
 import registerUser from "@/use-cases/frontend/user/registerUser";
 import { signIn } from "next-auth/react";
-import showToast from "@/utils/handleToast";
+import showToast from "@/utils/showToast";
 
 type Props = {
   email?: string;

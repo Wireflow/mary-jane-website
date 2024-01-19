@@ -2,7 +2,7 @@ import { authOptions } from "@/services/next-auth";
 import getServerAuth from "@/services/next-auth/getServerAuth";
 import { NewsletterSchema } from "@/types/Newsletter";
 import subscribeUserToNewsletter from "@/use-cases/backend/newsletter/subscribeUserToNewsletter";
-import getPoints from "@/use-cases/backend/user/points/getPoints";
+import getPoints from "@/use-cases/backend/user/getPoints";
 import { getServerSession } from "next-auth";
 import { NextResponse } from "next/server";
 import { ZodError } from "zod";

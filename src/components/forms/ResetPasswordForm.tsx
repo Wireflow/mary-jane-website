@@ -6,8 +6,8 @@ import {
   VerifyCode,
   VerifyCodeSchema,
 } from "@/types/ResetPassword";
-import sendUserVerificationCode from "@/use-cases/frontend/user/send-code/sendUserVerificationCode";
-import showToast from "@/utils/handleToast";
+import sendUserVerificationCode from "@/use-cases/frontend/verification-code/sendUserVerificationCode";
+import showToast from "@/utils/showToast";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Image from "next/image";
 import Link from "next/link";
@@ -15,7 +15,7 @@ import { useForm } from "react-hook-form";
 import { Button } from "../ui/button";
 import { Form, FormDescription, FormField, FormItem } from "../ui/form";
 import InputCode from "../ui/input-code";
-import verifyEmailCode from "@/use-cases/frontend/user/verify-code/verifyEmailCode";
+import verifyEmailCode from "@/use-cases/frontend/verification-code/verifyEmailCode";
 import { set } from "zod";
 import Field from "./partials/field";
 

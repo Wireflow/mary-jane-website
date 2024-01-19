@@ -9,7 +9,7 @@ import Field from "./partials/field";
 import { Button } from "../ui/button";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
-import showToast from "@/utils/handleToast";
+import showToast from "@/utils/showToast";
 import subscribeNewsletter from "@/use-cases/frontend/newsletter/subcribeNewsletter";
 
 type Props = {};

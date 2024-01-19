@@ -2,7 +2,7 @@ import authService from "@/services/authService";
 import { RegisterUser } from "@/types/RegisterUser";
 import { UseCaseReturn } from "@/types/UseCases";
 import { User, VerificationCode } from "@prisma/client";
-import { db } from "../../../../../prisma";
+import { db } from "../../../../prisma";
 import generateVerificationCode from "@/utils/generateEmailCode";
 import emailService from "@/services/emailService";
 

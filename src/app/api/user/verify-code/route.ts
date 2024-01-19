@@ -1,5 +1,5 @@
-import sendVerificationCode from "@/use-cases/backend/user/send-code/sendVerificationCode";
-import verifyCode from "@/use-cases/backend/user/verify-code/verifyCode";
+import sendVerificationCode from "@/use-cases/backend/verification-code/sendVerificationCode";
+import verifyCode from "@/use-cases/backend/verification-code/verifyCode";
 import { NextResponse } from "next/server";
 
 export async function PUT(req: Request, res: Response) {

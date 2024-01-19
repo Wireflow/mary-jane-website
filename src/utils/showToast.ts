@@ -8,7 +8,7 @@ const toastVariantStyles = {
   success: { background: "green", color: "white" },
 };
 
-type ShowToastOptions = {
+export type ShowToastOptions = {
   message: string;
   options?: ExternalToast;
   variant?: keyof typeof toastVariantStyles;

@@ -1,5 +1,5 @@
 import { UseCaseReturn } from "@/types/UseCases";
-import { db } from "../../../../../prisma";
+import { db } from "../../../../prisma";
 
 export default async function getPoints(
   userId: string

@@ -5,7 +5,7 @@ import { signOut, useSession } from "next-auth/react";
 import { Button } from "../ui/button";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import fetchPoints from "@/use-cases/frontend/user/points/fetchPoints";
+import fetchPoints from "@/use-cases/frontend/user/fetchPoints";
 import { useEffect, useState } from "react";
 import {
   DropdownMenu,

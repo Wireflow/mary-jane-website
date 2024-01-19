@@ -22,3 +22,13 @@ export const NewPasswordSchema = z.object({
 });
 
 export type NewPassword = z.infer<typeof NewPasswordSchema>;
+
+// -------------------------------------
+
+export const ChangePasswordSchema = z.object({
+  email: z.string().email(),
+  newPassword: z.string().min(8),
+  verifyPassword: z.string().min(8),
+});
+
+export type ChangePassword = z.infer<typeof ChangePasswordSchema>;

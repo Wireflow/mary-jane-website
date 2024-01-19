@@ -1,6 +1,6 @@
 import { authOptions } from "@/services/next-auth";
-import getPoints from "@/use-cases/backend/user/points/getPoints";
-import sendVerificationCode from "@/use-cases/backend/user/send-code/sendVerificationCode";
+import getPoints from "@/use-cases/backend/user/getPoints";
+import sendVerificationCode from "@/use-cases/backend/verification-code/sendVerificationCode";
 import { getServerSession } from "next-auth";
 import { NextResponse } from "next/server";
 

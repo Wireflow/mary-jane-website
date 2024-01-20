@@ -31,7 +31,7 @@ export default async function sendVerificationCode(
       },
     });
 
-    emailService.send({
+    await emailService.send({
       from: "maryjanesocialclubnyc@wireflow.us",
       to: existingUser.email,
       subject: `Mary Jane - Password Reset: ${newVerificationCode.code}`,

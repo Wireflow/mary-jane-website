@@ -13,8 +13,6 @@ const HomePage = (props: Props) => {
     <>
       <HeroSection />
       <ComingSoon />
-      <DealsSection />
-      <FeaturedProducts />
       <Features />
       <Memberships />
       <Location />

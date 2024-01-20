@@ -14,20 +14,20 @@ i: In-Progress
 - [x] Create use-case to check if the user exists and send email with code.
 - [x] Setup both send code & verify code api routes with their use-cases.
 - [x] Init account settings page.
+- [x] Implement code verification api to change password.
+- [x] Make send password reset use-case. (check if code is verified server-side)
+- [x] Create reset password form to change the password as the final step.
+- [x] Add forgot password functionaility.
+- [x] Fix circle component to display tailwind styling correctly. (MED)
 
 
 #### In-Progress Tasks
-- [i] Implement code verification api to change password.
-- [i] Make send password reset use-case. (check if code is verified server-side)
-- [i] Create reset password form to change the password as the final step.
+- [i] Differentiate between the two plans using styling.
 
 #### To-Do Tasks
 - [ ] Begin brainstorming account page.
-- [ ] Differentiate between the two plans using styling.
 - [ ] Add circles to the memberships page. (MED)
-- [ ] Fix circle component to display tailwind styling correctly. (MED)
 - [ ] Add reset password functionaility. 
-- [ ] Add forgot password functionaility.
 
 
 

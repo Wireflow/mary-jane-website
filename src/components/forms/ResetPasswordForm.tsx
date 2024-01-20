@@ -1,27 +1,23 @@
 "use client";
 
-import {
-  NewPassword,
-  NewPasswordSchema,
-  VerifyCode,
-  VerifyCodeSchema,
-} from "@/types/ResetPassword";
-import sendUserVerificationCode from "@/use-cases/frontend/verification-code/sendUserVerificationCode";
+import { NewPassword, NewPasswordSchema } from "@/types/ResetPassword";
 import showToast from "@/utils/showToast";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Image from "next/image";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { Button } from "../ui/button";
-import { Form, FormDescription, FormField, FormItem } from "../ui/form";
-import InputCode from "../ui/input-code";
-import verifyEmailCode from "@/use-cases/frontend/verification-code/verifyEmailCode";
-import { set } from "zod";
+import { Form } from "../ui/form";
 import Field from "./partials/field";
+import changePassword from "@/use-cases/frontend/user/changePassword";
+import { useRouter } from "next/navigation";
 
-type Props = {};
+type Props = {
+  email: string;
+};
 
-const ResetPasswordForm = (props: Props) => {
+const ResetPasswordForm = ({ email }: Props) => {
+  const router = useRouter();
   const form = useForm<NewPassword>({
     resolver: zodResolver(NewPasswordSchema),
     defaultValues: {
@@ -34,12 +30,33 @@ const ResetPasswordForm = (props: Props) => {
     handleSubmit,
     control,
     getValues,
+    setError,
     formState: { isSubmitting, isSubmitSuccessful },
   } = form;
 
   const onSubmit = async (data: NewPassword) => {
     try {
-      console.log(data);
+      if (getValues("newPassword") !== getValues("verifyPassword")) {
+        setError("verifyPassword", { message: "Passwords do not match" });
+      }
+
+      const updatedUser = await changePassword({ ...data, email });
+
+      if (!updatedUser.ok) {
+        showToast({
+          message: updatedUser.error?.message || "Code not verified or expired",
+          variant: "error",
+        });
+      }
+
+      if (updatedUser.ok) {
+        showToast({
+          message: `Password successfully reset`,
+          variant: "success",
+        });
+
+        router.replace("/auth?type=signin");
+      }
     } catch (error) {
       showToast({
         message: "Could update password, please try again later!",
@@ -78,6 +95,7 @@ const ResetPasswordForm = (props: Props) => {
             name="newPassword"
             control={control}
             label="New Password"
+            type="password"
             placeholder="Enter new password"
           />
 
@@ -85,6 +103,7 @@ const ResetPasswordForm = (props: Props) => {
             name="verifyPassword"
             control={control}
             label="Verify New Password"
+            type="password"
             placeholder="Enter password again"
           />
         </div>

@@ -24,9 +24,13 @@ const HeroSection = (props: Props) => {
   const unauthenticated = status === "unauthenticated";
 
   return (
-    <Section size="sm" background="purple" className="relative z-10 overflow-hidden">
+    <Section
+      size="sm"
+      background="purple"
+      className="relative z-10 overflow-hidden"
+    >
       <div className="mt-20 md:mt-16 flex md:flex-row flex-col gap-10 items-start md:items-center justify-between">
-        <div className="flex flex-col gap-4 z-10 mt-5">
+        <div className="flex flex-col gap-4 z-20 mt-5 ">
           <EarnPointsBadget />
           <h1 className="text-theme-white sm:text-7xl text-3xl md:text-4xl lg:text-4xl xl:text-7xl font-bold ">
             MARY JANE <br className="md:block hidden" /> SOCIAL CLUB
@@ -37,7 +41,10 @@ const HeroSection = (props: Props) => {
           </p>
           {authenticated ? (
             <Link href="/account" className="w-full">
-              <Button variant={"secondary"} className="lg:w-full flex gap-2 items-center">
+              <Button
+                variant={"secondary"}
+                className="lg:w-full flex gap-2 items-center"
+              >
                 My Account <ArrowRight size={30} className="-rotate-45" />
               </Button>
             </Link>

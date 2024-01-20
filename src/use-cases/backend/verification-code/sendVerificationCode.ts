@@ -32,7 +32,7 @@ export default async function sendVerificationCode(
     });
 
     emailService.send({
-      from: "maryjanesocialclubnyc@gmail.com",
+      from: "maryjanesocialclubnyc@wireflow.us",
       to: existingUser.email,
       subject: `Mary Jane - Password Reset: ${newVerificationCode.code}`,
       html: `<p>You have request to change your password, here's your code: ${newVerificationCode.code} </p>`,

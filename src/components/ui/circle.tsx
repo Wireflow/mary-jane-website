@@ -1,33 +1,26 @@
 import { cn } from "@/lib/utils";
 import React from "react";
 
-type Sizes = "xs" | "sm" | "md" | "lg" | "xl";
-type Colors = "purple" | "yellow" | "white" | "black";
+const sizeOptions = {
+  xs: "w-[150px] h-[150px]",
+  sm: "w-[250px] h-[250px]",
+  md: "w-[350px] h-[350px]",
+  lg: "w-[450px] h-[450px]",
+  xl: "w-[550px] h-[550px]",
+  "2xl": "w-[650px] h-[650px]",
+  "3xl": "w-[750px] h-[750px]",
+};
 
-type Opacity =
-  | 5
-  | 10
-  | 15
-  | 20
-  | 25
-  | 30
-  | 35
-  | 40
-  | 45
-  | 50
-  | 55
-  | 60
-  | 65
-  | 70
-  | 75
-  | 80
-  | 85
-  | 90
-  | 95;
+const colorOptions = {
+  purple: "bg-theme-purple",
+  yellow: "bg-theme-yellow",
+  white: "bg-theme-white",
+  black: "bg-theme-black",
+};
 
 type CircleProps = {
-  size?: Sizes;
-  color?: Colors;
+  size?: keyof typeof sizeOptions;
+  color?: keyof typeof colorOptions;
   width?: number;
   opacity?: number;
   className?: string;
@@ -42,30 +35,21 @@ const Circle = ({
 }: CircleProps) => {
   const bioler = "absolute rounded-full border-2 border-gray-500/10";
 
-  const sizeOptions = {
-    xs: "w-[100px] h-[100px]",
-    sm: "w-[200px] h-[200px]",
-    md: "w-[300px] h-[300px]",
-    lg: "w-[400px] h-[400px]",
-    xl: "w-[500px] h-[500px]",
-  };
+  const circleColor = colorOptions[color];
+  const circleOpacity = opacity ? opacity / 100 : undefined;
 
-  const colorOptions = {
-    purple: "bg-theme-purple",
-    yellow: "bg-theme-yellow",
-    white: "bg-theme-white",
-    black: "bg-theme-black",
-  };
-
-  const circleColor = opacity
-    ? `${colorOptions[color]}/${opacity}`
-    : colorOptions[color];
+  const circleColorOpacity = circleColor + circleOpacity;
 
   const circleSize = width
     ? `w-[${width}px] h-[${width}px]`
     : sizeOptions[size];
 
-  return <div className={cn(bioler, circleColor, circleSize, className)} />;
+  return (
+    <div
+      className={cn(bioler, colorOptions[color], circleSize, className)}
+      style={{ opacity: circleOpacity }}
+    />
+  );
 };
 
 export default Circle;

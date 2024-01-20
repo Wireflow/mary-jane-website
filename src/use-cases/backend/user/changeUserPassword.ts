@@ -1,10 +1,8 @@
 import authService from "@/services/authService";
-import { db } from "../../../../prisma";
-import { RegisterUser } from "@/types/RegisterUser";
-import { NextResponse } from "next/server";
-import { User } from "@prisma/client";
-import { UseCaseReturn } from "@/types/UseCases";
 import { ChangePassword } from "@/types/ResetPassword";
+import { UseCaseReturn } from "@/types/UseCases";
+import { User } from "@prisma/client";
+import { db } from "../../../../prisma";
 
 const auth = authService();
 
@@ -13,6 +11,37 @@ export default async function changeUserPassword(
 ): Promise<UseCaseReturn<User>> {
   try {
     const { email, newPassword, verifyPassword } = data;
+
+    const currentDate = new Date();
+
+    const mostRecentCode = await db.user.findFirst({
+      where: {
+        email,
+      },
+      include: {
+        verificationCodes: {
+          orderBy: {
+            createdAt: "desc",
+          },
+          where: {
+            expiration: {
+              gte: currentDate,
+            },
+          },
+          select: {
+            verified: true,
+          },
+          take: 1,
+        },
+      },
+    });
+
+    if (!mostRecentCode || !mostRecentCode?.verificationCodes[0]?.verified)
+      return {
+        success: false,
+        error: "User has not verified a code",
+        status: 401,
+      };
 
     if (newPassword !== verifyPassword) {
       return {

@@ -10,13 +10,13 @@ const HeroCircles = (props: Props) => {
         width={350}
         color="purple"
         opacity={50}
-        className="-bottom-[20%] -left-[5%] hidden md:block z-40"
+        className="-bottom-[20%] -left-[5%] hidden md:block z-10"
       />
       <Circle
         width={200}
         color="purple"
         opacity={50}
-        className="-top-[5%] -left-[2%] hidden md:block z-40"
+        className="-top-[5%] -left-[2%] hidden md:block -z-40"
       />
       <Circle
         width={200}
@@ -25,10 +25,10 @@ const HeroCircles = (props: Props) => {
         className="top-[3%] right-[1%] hidden md:block -z-10"
       />
       <Circle
-        width={350}
+        width={300}
         color="white"
         opacity={10}
-        className="-bottom-[25%] left-1/2 hidden md:block -z-10"
+        className="-bottom-[40%] left-1/2 hidden md:block -z-10"
       />
       <Circle
         width={100}

@@ -46,7 +46,7 @@ const PasswordResetPage = (props: Props) => {
           setVerified={setVerified}
         />
       ) : (
-        <ResetPasswordForm />
+        email && <ResetPasswordForm email={email} />
       )}
     </div>
   );

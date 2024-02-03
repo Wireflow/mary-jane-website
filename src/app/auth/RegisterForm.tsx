@@ -16,7 +16,7 @@ type Props = {
   email?: string;
 };
 
-const Register = (props: Props) => {
+const RegisterForm = (props: Props) => {
   const [registerError, setRegisterError] = useState<string | undefined>(
     undefined
   );
@@ -71,15 +71,6 @@ const Register = (props: Props) => {
         <div className="grid gap-2">
           <p className="font-bold text-theme-purple">Register</p>
           <h3 className="text-2xl">Create an Account</h3>
-          <p>
-            Already have an account?{" "}
-            <Link
-              href={"/auth"}
-              className="underline text-theme-purple font-semibold"
-            >
-              Sign In
-            </Link>
-          </p>
         </div>
         <div className="grid gap-1 mt-4">
           <Field
@@ -119,4 +110,4 @@ const Register = (props: Props) => {
   );
 };
 
-export default Register;
+export default RegisterForm;

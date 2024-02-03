@@ -1,10 +1,6 @@
-import Section from "@/components/ui/section";
-import { getServerSession } from "next-auth";
-import { authOptions } from "@/services/next-auth";
-import { db } from "../../../prisma";
-import { redirect } from "next/navigation";
 import AuthPage from "@/components/pages/AuthPage";
 import getServerAuth from "@/services/next-auth/getServerAuth";
+import { redirect } from "next/navigation";
 
 type Props = {};
 

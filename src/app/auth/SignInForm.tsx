@@ -9,18 +9,12 @@ import { signIn, useSession } from "next-auth/react";
 import Link from "next/link";
 
 import { useRouter } from "next/navigation";
-import React, { useState } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { toast } from "sonner";
 
 type Props = {};
 
-type SignInErrors =
-  | "Incorrect email or password"
-  | "Couldn't sign in user"
-  | undefined;
-
-const SignIn = (props: Props) => {
+const SignInForm = (props: Props) => {
   const router = useRouter();
   const [signInError, setSignInError] = useState<string | undefined>(undefined);
   const { data: session, status } = useSession();
@@ -35,9 +29,10 @@ const SignIn = (props: Props) => {
   const {
     handleSubmit,
     control,
-    setValue,
     formState: { isSubmitting },
   } = form;
+
+  if (status === "authenticated") return router.push("/account");
 
   const onSubmit = async (data: SignInUser) => {
     try {
@@ -79,23 +74,12 @@ const SignIn = (props: Props) => {
     }
   };
 
-  if (status === "authenticated") return router.push("/account");
-
   return (
     <Form {...form}>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit)} className="w-full">
         <div className="grid gap-2">
           <p className="font-bold text-theme-purple">Sign In</p>
           <h3 className="text-2xl">Welcome Back!</h3>
-          <p>
-            Don&apos;t have an account?{" "}
-            <Link
-              href={"/auth"}
-              className="underline text-theme-purple font-semibold"
-            >
-              Register
-            </Link>
-          </p>
         </div>
         <div className="grid gap-1 mt-4 md:max-w-[500px] w-full">
           <Field
@@ -131,4 +115,4 @@ const SignIn = (props: Props) => {
   );
 };
 
-export default SignIn;
+export default SignInForm;

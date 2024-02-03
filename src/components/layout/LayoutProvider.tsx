@@ -15,8 +15,9 @@ type LayoutProvider = {
 
 export const LayoutProvider = ({ children }: LayoutProvider) => {
   const pathname = usePathname();
+  const changeLayout = pathname !== "/auth" && pathname !== "/password/reset";
 
-  return pathname !== "/password/reset" ? (
+  return changeLayout ? (
     <>
       <NewsBanner
         text="Sign up now and get rewards."

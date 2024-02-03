@@ -35,18 +35,11 @@ const Circle = ({
 }: CircleProps) => {
   const bioler = "absolute rounded-full border-2 border-gray-500/10";
 
-  const circleColor = colorOptions[color];
   const circleOpacity = opacity ? opacity / 100 : undefined;
-
-  const circleColorOpacity = circleColor + circleOpacity;
-
-  const circleSize = width
-    ? `w-[${width}px] h-[${width}px]`
-    : sizeOptions[size];
 
   return (
     <div
-      className={cn(bioler, colorOptions[color], circleSize, className)}
+      className={cn(bioler, colorOptions[color], sizeOptions[size], className)}
       style={{ opacity: circleOpacity }}
     />
   );

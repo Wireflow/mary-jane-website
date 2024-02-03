@@ -1,79 +1,57 @@
 "use client";
 
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import Image from "next/image";
-import Register from "../../app/auth/Register";
-import SignIn from "../../app/auth/SignIn";
-import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
-import Section from "../ui/section";
+import { useSearchParams } from "next/navigation";
+import SignInForm from "../../app/auth/SignInForm";
+import Image from "next/image";
+import RegisterForm from "@/app/auth/RegisterForm";
+import { ChevronLeft } from "lucide-react";
 
 type Props = {};
 
 const AuthPage = (props: Props) => {
-  const router = useRouter();
   const search = useSearchParams();
   const type = search.get("type");
   const email = search.get("email");
+  const isRegisterQuery = type === "register";
 
   return (
-    <Section
-      size="sm"
-      backgroundImage="/"
-      className="md:mt-0 bg-size-[500px] h-screen  mt-20"
-    >
-      <div className="md:px-40 px-5 ">
-        <div className="bg-theme-yellow relative overflow-hidden mb-10 rounded-xl">
-          <Image
-            className="m-auto  md:w-[250px] w-[150px] p-2"
-            alt="Logo"
-            src={"/FooterLogo.svg"}
-            width={200}
-            height={40}
-          />
-        </div>
-        <div className="flex sm:justify-start justify-center items-center">
-          <Tabs defaultValue={type || "signin"} className="z-30 ">
-            <TabsList className="shadow-xl">
-              <Link
-                href={{
-                  pathname: "/auth",
-                  query: { email, type: "signin" },
-                }}
-              >
-                <TabsTrigger
-                  className="data-[state=active]:bg-theme-purple w-full flex-1 data-[state=active]:text-theme-white px-[60px] py-4 rounded-r-none rounded-l-xl  bg-gray-100 md:text-md"
-                  value="signin"
-                >
-                  Sign In
-                </TabsTrigger>
-              </Link>
-              <Link
-                href={{
-                  pathname: "/auth",
-                  query: { email, type: "register" },
-                }}
-              >
-                <TabsTrigger
-                  className="data-[state=active]:bg-theme-purple flex-1 data-[state=active]:text-theme-white px-[60px] py-4 rounded-l-none rounded-r-xl bg-gray-100 md:text-md"
-                  value="register"
-                >
-                  Register
-                </TabsTrigger>
-              </Link>
-            </TabsList>
-            <div className="mt-10">
-              <TabsContent value="signin">
-                <SignIn />
-              </TabsContent>
-              <TabsContent value="register">
-                <Register email={email || ""} />
-              </TabsContent>
+    <div className="min-h-screen flex md:justify-center md:items-center px-6">
+      <div className="flex flex-col gap-10 sm:justify-start mt-24 md:mt-0 md:items-center w-full">
+        <Image
+          src={"/icon-logo-black.svg"}
+          alt="logo"
+          width={250}
+          height={300}
+          className="hidden md:block"
+        />
+        <div className="mx-auto w-full max-w-[500px] md:bg-white md:shadow-theme-purple/15 md:shadow-[0px_0px_75px_10px] md:p-16 rounded-2xl">
+          <Link href={"/"}>
+            <div className="-ml-2 mb-4 flex gap-1 text-theme-purple">
+              <ChevronLeft className="w-5 h-5" />
+              <p className="font-medium text-sm">Back to Home</p>
             </div>
-          </Tabs>
+          </Link>
+          {isRegisterQuery ? (
+            <RegisterForm email={email || ""} />
+          ) : (
+            <SignInForm />
+          )}
         </div>
+        <p>
+          {isRegisterQuery ? "Already with" : "New to"} Mary Jane?{" "}
+          <Link
+            href={{
+              pathname: "/auth",
+              query: { type: isRegisterQuery ? "signin" : "register" },
+            }}
+            className="text-theme-purple font-semibold"
+          >
+            {isRegisterQuery ? "Sign In" : "Register Now"}
+          </Link>
+        </p>
       </div>
-    </Section>
+    </div>
   );
 };
 

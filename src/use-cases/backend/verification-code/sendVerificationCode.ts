@@ -21,7 +21,7 @@ export default async function sendVerificationCode(
     if (!existingUser)
       return { success: false, error: "User does not exist", status: 404 };
 
-    const { code, expiration } = generateVerificationCode();
+    const { code, expiration } = await generateVerificationCode();
 
     const newVerificationCode = await db.verificationCode.create({
       data: {

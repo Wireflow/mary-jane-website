@@ -12,6 +12,7 @@ import { Form, FormDescription, FormField, FormItem } from "../ui/form";
 import InputCode from "../ui/input-code";
 import verifyEmailCode from "@/use-cases/frontend/verification-code/verifyEmailCode";
 import { set } from "zod";
+import handleAsyncOperation from "@/utils/handleAsyncOperation";
 
 type Props = {
   email?: string;
@@ -35,41 +36,17 @@ const VerifyEmailCodeForm = ({ email, setIsEmailSent, setVerified }: Props) => {
   } = form;
 
   const onSubmit = async (data: VerifyCode) => {
-    if (email)
-      try {
-        setVerified(false);
-        const isCodeVerified = await verifyEmailCode({
-          code: data.code,
-          email,
-        });
-
-        if (isCodeVerified.error?.status === 404) {
-          showToast({
-            message: "User does not exist exists",
-            variant: "error",
-          });
-        }
-
-        if (isCodeVerified.error?.status === 401) {
-          showToast({
-            message: "Incorrect code, try again!",
-            variant: "error",
-          });
-        }
-
-        if (isCodeVerified.ok) {
-          setVerified(true);
-          showToast({
-            message: "Code verified!",
-            variant: "success",
-          });
-        }
-      } catch (error) {
-        showToast({
-          message: "Could verify user code, please try again!",
-          variant: "error",
-        });
-      }
+    if (email) {
+      setVerified(false);
+      await handleAsyncOperation({
+        operation: () => verifyEmailCode({ ...data, email }),
+        onSuccess: () => setVerified(true),
+        toastOptions: {
+          success: { message: "Code verified!" },
+          error: { message: "Could verify user code, please try again!" },
+        },
+      });
+    }
   };
 
   return (

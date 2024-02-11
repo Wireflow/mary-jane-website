@@ -11,6 +11,7 @@ import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import showToast from "@/utils/showToast";
 import subscribeNewsletter from "@/use-cases/frontend/newsletter/subcribeNewsletter";
+import handleAsyncOperation from "@/utils/handleAsyncOperation";
 
 type Props = {};
 
@@ -32,36 +33,15 @@ const NewsletterForm = (props: Props) => {
   } = form;
 
   const onSubmit = async (data: Newsletter) => {
-    try {
-      const result = await subscribeNewsletter(data);
-
-      if (result?.ok) {
-        return showToast({
-          message: "Subscribed to newsletter!",
-          variant: "black",
-        });
-      }
-
-      if (result?.error?.status === 409) {
-        return showToast({
-          message: "User already subscribed!",
-          variant: "error",
-        });
-      }
-
-      if (!result?.ok) {
-        return showToast({
-          message: `Failed to subscribe user!`,
-          variant: "error",
-        });
-      }
-    } catch (error) {
-      showToast({
-        message: `Failed to subscribe user!`,
-        variant: "error",
-      });
-    }
+    await handleAsyncOperation({
+      operation: () => subscribeNewsletter(data),
+      toastOptions: {
+        success: { message: "Subscribed to newsletter" },
+        error: { message: "Failed to subscribe user!" },
+      },
+    });
   };
+
   return (
     <Form {...form}>
       <form

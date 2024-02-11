@@ -9,9 +9,9 @@ import { ZodError } from "zod";
 
 export async function GET(req: Request, res: Response) {
   try {
-    const { authenticated, session } = await getServerAuth();
+    const { session } = await getServerAuth();
 
-    if (!session?.user || !authenticated) {
+    if (!session?.user) {
       return NextResponse.json(
         { message: "Unauthorized Request" },
         { status: 401 }

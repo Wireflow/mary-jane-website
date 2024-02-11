@@ -1,5 +1,4 @@
 import z from "zod";
-import axios from "@/services/requestHandler";
 
 export const RegisterUserSchema = z.object({
   name: z

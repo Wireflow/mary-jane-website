@@ -1,7 +1,7 @@
 import React from "react";
 import { twMerge } from "tailwind-merge";
 
-const bg_variants = {
+export const bg_variants = {
   black: "bg-theme-black",
   purple: "bg-theme-purple",
   yellow: "bg-theme-yellow",

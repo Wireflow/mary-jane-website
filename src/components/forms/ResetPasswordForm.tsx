@@ -11,6 +11,7 @@ import { Form } from "../ui/form";
 import Field from "./partials/field";
 import changePassword from "@/use-cases/frontend/user/changePassword";
 import { useRouter } from "next/navigation";
+import handleAsyncOperation from "@/utils/handleAsyncOperation";
 
 type Props = {
   email: string;
@@ -35,34 +36,20 @@ const ResetPasswordForm = ({ email }: Props) => {
   } = form;
 
   const onSubmit = async (data: NewPassword) => {
-    try {
-      if (getValues("newPassword") !== getValues("verifyPassword")) {
-        setError("verifyPassword", { message: "Passwords do not match" });
-      }
-
-      const updatedUser = await changePassword({ ...data, email });
-
-      if (!updatedUser.ok) {
-        showToast({
-          message: updatedUser.error?.message || "Code not verified or expired",
-          variant: "error",
-        });
-      }
-
-      if (updatedUser.ok) {
-        showToast({
-          message: `Password successfully reset`,
-          variant: "success",
-        });
-
-        router.replace("/auth?type=signin");
-      }
-    } catch (error) {
-      showToast({
-        message: "Could update password, please try again later!",
-        variant: "error",
-      });
+    if (getValues("newPassword") !== getValues("verifyPassword")) {
+      setError("verifyPassword", { message: "Passwords do not match" });
     }
+
+    await handleAsyncOperation({
+      operation: () => changePassword({ ...data, email }),
+      onSuccess: () => {
+        router.replace("/auth?type=signin");
+      },
+      toastOptions: {
+        success: { message: "Password successfully reset" },
+        error: { message: "Code not verified or expired!" },
+      },
+    });
   };
 
   return (

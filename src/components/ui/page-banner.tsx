@@ -1,21 +1,38 @@
 import React from "react";
 import Section from "./section";
+import { bg_variants } from "./section";
+import { cn } from "@/lib/utils";
 
 type PageBannerProps = {
   title: string;
-  description: string;
+  description?: string;
+  background?: keyof typeof bg_variants;
+  left?: boolean;
 };
 
-const PageBanner = (props: PageBannerProps) => {
+const PageBanner = ({
+  background = "light-purple",
+  ...props
+}: PageBannerProps) => {
   return (
     <Section
-      className="text-center text-theme-white break-words"
-      background="light-purple"
+      className={cn("text-theme-white break-words", {
+        "text-center": !props.left,
+      })}
+      background={background}
       size="md"
     >
-      <div className="max-w-[800px] mx-auto">
-        <h2 className="text-3xl md:text-5xl mb-2 font-bold">{props.title}</h2>
-        <p className="md:text-md text-sm font-medium">{props.description}</p>
+      <div className={cn({ "max-w-[800px] mx-auto": !props.left })}>
+        <h2
+          className={cn("text-3xl md:text-5xl mb-2 font-bold", {
+            "text-theme-black/70": background === "white",
+          })}
+        >
+          {props.title}
+        </h2>
+        {props.description && (
+          <p className="md:text-md text-sm font-medium">{props.description}</p>
+        )}
       </div>
     </Section>
   );

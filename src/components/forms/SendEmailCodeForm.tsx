@@ -12,6 +12,7 @@ import sendUserVerificationCode from "@/use-cases/frontend/verification-code/sen
 import showToast from "@/utils/showToast";
 import { Check } from "lucide-react";
 import { useState } from "react";
+import handleAsyncOperation from "@/utils/handleAsyncOperation";
 
 type Props = {
   isEmailSent: boolean;
@@ -38,38 +39,18 @@ const SendEmailCodeForm = ({
   } = form;
 
   const onSubmit = async (data: SendEmailCode) => {
-    try {
-      setIsEmailSent(false);
-      const isCodeSent = await sendUserVerificationCode({ email: data.email });
-
-      if (isCodeSent.error?.status === 409) {
-        showToast({
-          message: "User does not exist exists",
-          variant: "error",
-        });
-      }
-
-      if (isCodeSent.error?.status === 404) {
-        showToast({
-          message: "User does not exist exists",
-          variant: "error",
-        });
-      }
-
-      if (isCodeSent.ok) {
+    setIsEmailSent(false);
+    await handleAsyncOperation({
+      operation: () => sendUserVerificationCode(data),
+      onSuccess: () => {
         setIsEmailSent(true);
         setEmail(data.email);
-        showToast({
-          message: `Code sent to ${data.email}`,
-          variant: "success",
-        });
-      }
-    } catch (error) {
-      showToast({
-        message: "Could not send user code, please try again!",
-        variant: "error",
-      });
-    }
+      },
+      toastOptions: {
+        success: { message: "Email sent to " + data.email },
+        error: { message: "Failed to send code to email" },
+      },
+    });
   };
 
   return (

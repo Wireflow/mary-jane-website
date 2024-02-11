@@ -2,9 +2,9 @@
 
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import SignInForm from "../../app/auth/SignInForm";
+import SignInForm from "../forms/SignInForm";
 import Image from "next/image";
-import RegisterForm from "@/app/auth/RegisterForm";
+import RegisterForm from "@/components/forms/RegisterForm";
 import { ChevronLeft } from "lucide-react";
 
 type Props = {};

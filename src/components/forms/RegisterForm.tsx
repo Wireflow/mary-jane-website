@@ -11,6 +11,7 @@ import Field from "@/components/forms/partials/field";
 import registerUser from "@/use-cases/frontend/user/registerUser";
 import { signIn } from "next-auth/react";
 import showToast from "@/utils/showToast";
+import handleAsyncOperation from "@/utils/handleAsyncOperation";
 
 type Props = {
   email?: string;
@@ -38,28 +39,24 @@ const RegisterForm = (props: Props) => {
   } = form;
 
   const onSubmit = async (data: RegisterUser) => {
-    try {
-      setRegisterError(undefined);
-      const newUser = await registerUser(data);
-
-      if (newUser.ok) {
+    setRegisterError(undefined);
+    await handleAsyncOperation({
+      operation: () => registerUser(data),
+      onSuccess: () => {
         signIn("credentials", {
           email: data.email,
           password: data.password,
         });
-        return reset();
-      }
-
-      if (newUser.error?.status === 409) {
-        return showToast({
-          message: "Email or Phone Number Already In Use",
-          variant: "error",
+        reset();
+      },
+      toastOptions: {
+        success: { message: "Registered user successfully" },
+        error: {
+          message: "Unable to register user. Try again!",
           setFormError: setRegisterError,
-        });
-      }
-    } catch (error) {
-      setRegisterError("Unable to register user. Try again!");
-    }
+        },
+      },
+    });
   };
 
   return (

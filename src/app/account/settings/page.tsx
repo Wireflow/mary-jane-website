@@ -1,3 +1,4 @@
+import SettingsPage from "@/components/pages/SettingsPage";
 import protectServerPage from "@/services/next-auth/protectServerPage";
 import React from "react";
 
@@ -8,7 +9,7 @@ const Settings = async (props: Props) => {
     redirectTo: "/auth?type=signin",
   });
 
-  return <div>Settings</div>;
+  return <SettingsPage />;
 };
 
 export default Settings;
